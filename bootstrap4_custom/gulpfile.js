@@ -86,6 +86,7 @@ var gulp = require('gulp'); // Gulp of-course
 
 // CSS related plugins.
 var sass = require('gulp-sass'); // Gulp pluign for Sass compilation.
+var sassGlob = require('gulp-sass-glob'); // Gulp plugin for Sass import global
 var minifycss = require('gulp-uglifycss'); // Minifies CSS files.
 var autoprefixer = require('gulp-autoprefixer'); // Autoprefixing magic.
 var mmq = require('gulp-merge-media-queries'); // Combine matching media queries into one media query definition.
@@ -121,6 +122,7 @@ gulp.task('styles', function () {
 	gulp.src(styleSRC)
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
+		.pipe(sassGlob())
 		.pipe(sass({
 			errLogToConsole: true,
 			outputStyle: 'compact',
