@@ -14,8 +14,13 @@
 function front_css() {
 	if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
-		$vendor_file = '/dist/css/vendors.min.css';
-		$custom_file = '/dist/css/custom.min.css';
+		if (defined('WP_DEBUG') && true === WP_DEBUG) {
+			$vendor_file = '/dist/css/vendors.css';
+			$custom_file = '/dist/css/custom.css';
+		} else {
+			$vendor_file = '/dist/css/vendors.min.css';
+			$custom_file = '/dist/css/custom.min.css';
+		}
 
 		wp_enqueue_style('vendors', get_stylesheet_directory_uri() . $vendor_file, [], filemtime(get_stylesheet_directory() . $vendor_file), 'all');
 		wp_enqueue_style('main', get_stylesheet_directory_uri() . $custom_file, [], filemtime(get_stylesheet_directory() . $custom_file), 'all');
@@ -28,8 +33,13 @@ function front_css() {
 function front_js() {
 	if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
-		$vendor_file = '/dist/js/vendors.min.js';
-		$custom_file = '/dist/js/custom.min.js';
+		if (defined('WP_DEBUG') && true === WP_DEBUG) {
+			$vendor_file = '/dist/js/vendors.js';
+			$custom_file = '/dist/js/custom.js';
+		} else {
+			$vendor_file = '/dist/js/vendors.min.js';
+			$custom_file = '/dist/js/custom.min.js';
+		}
 
 		wp_register_script('vendors', get_stylesheet_directory_uri() . $vendor_file, [], filemtime(get_stylesheet_directory() . $vendor_file), TRUE);
 		wp_enqueue_script('app', get_stylesheet_directory_uri() . $custom_file, ['vendors'], filemtime(get_stylesheet_directory() . $custom_file), TRUE);
