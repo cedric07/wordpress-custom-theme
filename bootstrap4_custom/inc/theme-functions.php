@@ -1,11 +1,4 @@
 <?php
-/**
- * Theme functions and definitions
- *
- * @package WordPress
- * @subpackage BOOTSTRAP 4 CUSTOM
- * @since BOOTSTRAP 4 CUSTOM 1.0
- */
 
 /**
  * Récupère le texte alternatif de l'image

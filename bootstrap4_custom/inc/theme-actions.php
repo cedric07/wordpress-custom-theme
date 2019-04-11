@@ -1,13 +1,5 @@
 <?php
 
-/**
- * Theme actions
- *
- * @package WordPress
- * @subpackage BOOTSTRAP 4 CUSTOM
- * @since BOOTSTRAP 4 CUSTOM 1.0
- */
-
 // Front assets
 add_action('wp_enqueue_scripts', 'front_css');
 add_action('wp_enqueue_scripts', 'front_js');

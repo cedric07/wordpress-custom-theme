@@ -1,14 +1,6 @@
 <?php
 
 /**
- * Theme sub actions
- *
- * @package WordPress
- * @subpackage BOOTSTRAP 4 CUSTOM
- * @since BOOTSTRAP 4 CUSTOM 1.0
- */
-
-/**
  * CSS
  */
 function front_css() {

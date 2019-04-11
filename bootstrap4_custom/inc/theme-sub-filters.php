@@ -1,14 +1,6 @@
 <?php
 
 /**
- * Theme Sub Filters
- *
- * @package WordPress
- * @subpackage BOOTSTRAP 4 CUSTOM
- * @since BOOTSTRAP 4 CUSTOM 1.0
- */
-
-/**
  * Remove the <div> surrounding the dynamic navigation to cleanup markup
  *
  * @param string $args
