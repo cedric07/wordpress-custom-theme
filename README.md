@@ -1,11 +1,11 @@
 # Mise en place du thème
 
-### Copiez le thème dans votre wordpress
+### Copiez le thème dans votre dossier "themes" du wordpress
 
 ### Renommer le thème et le "Text Domain" si besoin et se rendre à l'intérieur de ce dernier :
 
 ```sh
-cd bootstrap4_custom
+cd wp-content/themes/bootstrap4_custom
 ```
 
 ### Installer les composants et dépendances :
