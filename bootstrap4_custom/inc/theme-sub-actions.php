@@ -90,3 +90,15 @@ function pagination() {
         'next_text' => 'next',
 	]);
 }
+
+/**
+ * Theme setup
+ */
+function my_theme_setup() {
+	// Nouveauté à ajouter
+	add_theme_support('editor-styles');
+	// Puis la même fonction qu'on utilisait auparavant pour Tiny MCE
+	add_editor_style('style-editor.css');
+	// ACTIVER LA FEUILLE DE STYLES PAR DÉFAUT DES BLOCS GUTENBERG
+	add_theme_support( 'wp-block-styles' );
+}

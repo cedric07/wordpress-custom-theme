@@ -4,11 +4,6 @@
 add_action('wp_enqueue_scripts', 'front_css');
 add_action('wp_enqueue_scripts', 'front_js');
 
-// Theme Support
-if (!isset($content_width)) {
-    $content_width = 900;
-}
-
 if (function_exists('add_theme_support')) {
     // Add Menu Support
     add_theme_support('menus');
@@ -17,9 +12,13 @@ if (function_exists('add_theme_support')) {
     add_theme_support('automatic-feed-links');
 }
 
-// Add actions
+// Global actions
 add_action('init', 'register_menu');
 add_action('init', 'pagination');
+add_action( 'after_setup_theme', 'my_theme_setup' );
+
+// Blocks Gutenberg
+add_action('acf/init', 'my_acf_init');
 
 // Remove Actions
 remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds

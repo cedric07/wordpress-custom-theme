@@ -9,6 +9,8 @@ define('THEME_INCLUDES', THEME_DIR . '/inc');
 define('THEME_TEMPLATES', THEME_DIR . '/templates');
 
 // Includes
+require THEME_INCLUDES . '/theme-blocks-gutenberg.php';
+
 require THEME_INCLUDES . '/theme-actions.php';
 require THEME_INCLUDES . '/theme-sub-actions.php';
 

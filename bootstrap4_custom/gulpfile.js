@@ -29,9 +29,13 @@ var styleVendorSRC = [ // Path to Vendor CSS files
 var styleVendorDestination = './dist/css/'; // Path to place the compiled CSS file.
 var styleVendorFile = 'vendors'; // Compiled CSS file name.
 
+// Style editor
+var styleEditorSrc = './src/sass/style-editor.scss';
+var styleEditorDestination = './';
+
 // Style Custom related.
 var styleSRC = [ // Path to SCSS files
-	'./src/sass/*.scss/',
+	'./src/sass/main.scss/',
 ];
 var styleDestination = './dist/css/'; // Path to place the compiled CSS file.
 var styleMainFile = 'custom'; // Compiled CSS file name.
@@ -197,6 +201,28 @@ gulp.task('stylesVendor', function () {
 		.pipe(notify({message: 'TASK: "styles vendor" Completed! 💯', onLast: true}))
 });
 
+gulp.task('editor-style', function() {
+	return gulp.src(styleEditorSrc)
+		.pipe(plumber())
+		.pipe(sassGlob())
+		.pipe(sass({
+			errLogToConsole: true,
+			// outputStyle: 'compact',
+			// outputStyle: 'compressed',
+			// outputStyle: 'nested',
+			outputStyle: 'expanded',
+			precision: 10
+		}))
+		.on('error', console.error.bind(console))
+		.pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
+
+		.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
+		.pipe(gulp.dest(styleEditorDestination))
+
+		.pipe(filter('**/*.css')) // Filtering stream to only css files
+		.pipe(notify({message: 'TASK: "styles editor" Completed! 💯', onLast: true}))
+});
+
 /**
  * Task: `vendorJS`.
  *
@@ -261,7 +287,7 @@ gulp.task('customJS', function () {
 /**
  * Default Tasks.
  */
-gulp.task('default', ['stylesVendor', 'styles', 'vendorsJs', 'customJS']);
+gulp.task('default', ['stylesVendor', 'styles', 'editor-style', 'vendorsJs', 'customJS']);
 
 /**
  * Watch Tasks.
@@ -270,7 +296,7 @@ gulp.task('default', ['stylesVendor', 'styles', 'vendorsJs', 'customJS']);
  */
 gulp.task('watch', ['default'], function () {
 	gulp.watch(styleVendorWatchFiles, ['stylesVendor']); // Reload on Vendor CSS file changes.
-	gulp.watch(styleWatchFiles, ['styles']); // Reload on SCSS file changes.
+	gulp.watch(styleWatchFiles, ['styles', 'editor-style']); // Reload on SCSS file changes.
 	gulp.watch(vendorJSWatchFiles, ['vendorsJs']); // Reload on vendorsJs file changes.
 	gulp.watch(customJSWatchFiles, ['customJS']); // Reload on customJS file changes.
 });

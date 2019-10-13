@@ -1,0 +1,50 @@
+@import "partials/variables";
+@import "partials/mixins";
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/bootstrap-grid";
+
+$font-path: "fonts";
+@import "partials/helpers";
+@import "partials/general/fonts";
+@import "partials/components/gutenberg/*";
+
+* {
+	color: $text-color;
+	font-family: $font-custom;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Main column width */
+.wp-block {
+	max-width: 1110px;
+}
+
+.editor-inner-blocks {
+	width: 100%;
+}
+
+dd, li {
+	margin-bottom: 0;
+}
+
+.block-library-list .editor-rich-text__tinymce, .block-library-list .editor-rich-text__tinymce ol, .block-library-list .editor-rich-text__tinymce ul {
+	@include x-rem(padding-left, 17px);
+	margin-left: 0;
+}
+
+p.editor-rich-text__tinymce, ul.editor-rich-text__tinymce {
+	@include x-rem(font-size, $default-text-size);
+	line-height: 1.5;
+}
+
+#tinymce {
+	padding: 15px;
+
+	p {
+		margin-top: 0;
+	}
+}

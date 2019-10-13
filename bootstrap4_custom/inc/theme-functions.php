@@ -1,30 +1,6 @@
 <?php
 
 /**
- * Récupère le texte alternatif de l'image
- *
- * @param $imgId
- *
- * @return mixed
- */
-function getAltAttrImg($imgId) {
-	return get_post_meta($imgId, '_wp_attachment_image_alt', TRUE);
-}
-
-/**
- * Récupère l'url de l'image
- *
- * @param $imgId
- * @param $imgSize
- *
- * @return array|false
- */
-function getImgUrl($imgId, $imgSize) {
-	return wp_get_attachment_image_src($imgId, $imgSize, FALSE);
-}
-
-
-/**
  * Navigation
  */
 function menu_nav() {
@@ -124,4 +100,19 @@ function customExcerpt( $limit = NULL ) {
  */
 function stringTrunc( $string, $limit, $end ) {
     return ( strlen( $string ) > $limit ) ? substr( $string, 0, $limit ) . $end : $string;
+}
+
+/**
+ * @param $block
+ * ACF render blocks
+ */
+function my_acf_block_render_callback($block)
+{
+	// Example : convert name ("acf/testimonial") into path friendly slug ("testimonial")
+    $slug = str_replace('acf/', '', $block['name']);
+    
+	// include a template part from within the "template-parts/block" folder
+	if (file_exists(get_template_directory() . "/templates/block/content-{$slug}.php")) {
+		include(get_template_directory() . "/templates/block/content-{$slug}.php");
+	}
 }
