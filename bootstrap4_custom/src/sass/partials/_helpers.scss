@@ -2,17 +2,6 @@
 //------- Utility Classes
 //---------------------------------------------------------------------------
 
-.valign-wrapper {
-	display: flex;
-	align-items: center;
-
-	&:after {
-		content: '';
-		min-height: inherit;
-		font-size: 0;
-	}
-}
-
 img.img-responsive,
 video.video-responsive {
 	max-width: 100%;
@@ -32,25 +21,12 @@ video.video-responsive {
 	text-align: right
 }
 
-.center, .center-align {
+.center-align {
 	text-align: center;
-}
-
-.left {
-	float: left !important;
-}
-
-.right {
-	float: right !important;
 }
 
 // No Text Select
 .no-select {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
 	user-select: none;
 }
 
@@ -58,19 +34,9 @@ video.video-responsive {
 	border-radius: 50%;
 }
 
-.center-block {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .truncate {
 	display: block;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-}
-
-.no-padding {
-	padding: 0 !important;
 }

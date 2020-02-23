@@ -17,11 +17,11 @@ npm install
 ### Compilation et concaténation des fichiers :
 
 ```sh
-npx gulp
+npm run build
 ```
 
 Pour le watch :
 
 ```sh
-npx gulp watch
+npm run watch
 ```

@@ -97,8 +97,14 @@ function pagination() {
 function my_theme_setup() {
 	// Nouveauté à ajouter
 	add_theme_support('editor-styles');
-	// Puis la même fonction qu'on utilisait auparavant pour Tiny MCE
-	add_editor_style('style-editor.css');
+
+    // Puis la même fonction qu'on utilisait auparavant pour Tiny MCE
+    if (defined('WP_DEBUG') && true === WP_DEBUG) {
+        add_editor_style('/dist/css/style-editor.css');
+    } else {
+        add_editor_style('/dist/css/style-editor.min.css');
+    }
+
 	// ACTIVER LA FEUILLE DE STYLES PAR DÉFAUT DES BLOCS GUTENBERG
 	add_theme_support( 'wp-block-styles' );
 }

@@ -3,10 +3,14 @@ var APP = APP || {};
 var $ = jQuery.noConflict();
 
 APP.pref = {
-	screenLarge: 1200,
-	screenMedium: 992,
-	screenSmall: 768,
-	screenExtraSmall: 576
+	screen_xl: 1200,
+	screen_lg_down: 1199.98,
+	screen_lg: 992,
+	screen_md_down: 991.98,
+	screen_md: 768,
+	screen_sm_down: 767.98,
+	screen_sm: 576,
+	screen_xs_down: 575.98
 };
 
 $(document).ready(function () {
