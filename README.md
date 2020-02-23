@@ -11,19 +11,19 @@ cd wp-content/themes/bootstrap4_custom
 ### Installer les composants et dépendances :
 
 ```sh
-npm install
+yarn install
 ```
 
 ### Compilation et concaténation des fichiers :
 
 ```sh
-npm run build
+yarn run build
 ```
 
 Pour le watch :
 
 ```sh
-npm run watch
+yarn run watch
 ```
 
 ### Librairie d'éléments :
