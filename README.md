@@ -25,3 +25,6 @@ Pour le watch :
 ```sh
 npm run watch
 ```
+
+### Librairie d'éléments :
+https://your-url.local/wp-content/themes/bootstrap4_custom/src/library/library.html
