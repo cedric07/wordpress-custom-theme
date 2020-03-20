@@ -24,7 +24,7 @@
 <header class="header" role="banner">
 	<div class="container">
 		<!-- nav -->
-		<nav>
+		<nav role="navigation">
 			<a href="<?php echo home_url(); ?>">
 				<img src="<?php echo IMG_DEST; ?>logo.svg"
 				     alt="Logo">
