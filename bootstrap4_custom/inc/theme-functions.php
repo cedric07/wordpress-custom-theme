@@ -8,12 +8,12 @@ function menu_nav() {
 		[
 			'theme_location'  => 'header-menu',
 			'menu'            => '',
-			'container'       => FALSE,
-			'container_class' => FALSE,
-			'container_id'    => FALSE,
+			'container'       => false,
+			'container_class' => false,
+			'container_id'    => false,
 			'menu_class'      => '',
-			'menu_id'         => FALSE,
-			'echo'            => TRUE,
+			'menu_id'         => false,
+			'echo'            => true,
 			'fallback_cb'     => 'wp_page_menu',
 			'depth'           => 2,
 		]
@@ -24,37 +24,37 @@ function menu_nav() {
  * ACF Options page.
  */
 if ( function_exists( 'acf_add_options_page' ) ) {
-    acf_add_options_page( [
-        'page_title' => 'Theme General Settings',
-        'menu_title' => 'Theme Settings',
-        'menu_slug'  => 'theme-general-settings',
-        'capability' => 'edit_posts',
-        'redirect'   => TRUE,
-    ] );
+	acf_add_options_page( [
+		'page_title' => 'Theme General Settings',
+		'menu_title' => 'Theme Settings',
+		'menu_slug'  => 'theme-general-settings',
+		'capability' => 'edit_posts',
+		'redirect'   => true,
+	] );
 
-    acf_add_options_sub_page( [
-        'page_title'  => 'Header Settings',
-        'menu_title'  => 'Header',
-        'parent_slug' => 'theme-general-settings',
-    ] );
+	acf_add_options_sub_page( [
+		'page_title'  => 'Header Settings',
+		'menu_title'  => 'Header',
+		'parent_slug' => 'theme-general-settings',
+	] );
 
-    acf_add_options_sub_page( [
-        'page_title'  => 'Footer Settings',
-        'menu_title'  => 'Footer',
-        'parent_slug' => 'theme-general-settings',
-    ] );
+	acf_add_options_sub_page( [
+		'page_title'  => 'Footer Settings',
+		'menu_title'  => 'Footer',
+		'parent_slug' => 'theme-general-settings',
+	] );
 
-    acf_add_options_sub_page( [
-        'page_title'  => '404 page Settings',
-        'menu_title'  => '404 page',
-        'parent_slug' => 'theme-general-settings',
-    ] );
+	acf_add_options_sub_page( [
+		'page_title'  => '404 page Settings',
+		'menu_title'  => '404 page',
+		'parent_slug' => 'theme-general-settings',
+	] );
 
-    acf_add_options_sub_page( [
-        'page_title'  => 'General Settings',
-        'menu_title'  => 'General',
-        'parent_slug' => 'theme-general-settings',
-    ] );
+	acf_add_options_sub_page( [
+		'page_title'  => 'General Settings',
+		'menu_title'  => 'General',
+		'parent_slug' => 'theme-general-settings',
+	] );
 }
 
 /**
@@ -64,13 +64,13 @@ if ( function_exists( 'acf_add_options_page' ) ) {
  *
  * @return string
  */
-function customTitle( $limit = NULL ) {
-    $title = get_the_title();
-    if ( ! empty( $title ) && ! empty( $limit ) ) {
-        $title = stringTrunc( $title, $limit, '...' );
-    }
+function customTitle( $limit = null ) {
+	$title = get_the_title();
+	if ( ! empty( $title ) && ! empty( $limit ) ) {
+		$title = stringTrunc( $title, $limit, '...' );
+	}
 
-    return $title;
+	return $title;
 }
 
 /**
@@ -80,13 +80,13 @@ function customTitle( $limit = NULL ) {
  *
  * @return string
  */
-function customExcerpt( $limit = NULL ) {
-    $excerpt = get_the_excerpt();
-    if ( ! empty( $excerpt ) && ! empty( $limit ) ) {
-        $excerpt = stringTrunc( $excerpt, $limit, '...' );
-    }
+function customExcerpt( $limit = null ) {
+	$excerpt = get_the_excerpt();
+	if ( ! empty( $excerpt ) && ! empty( $limit ) ) {
+		$excerpt = stringTrunc( $excerpt, $limit, '...' );
+	}
 
-    return $excerpt;
+	return $excerpt;
 }
 
 /**
@@ -99,20 +99,19 @@ function customExcerpt( $limit = NULL ) {
  * @return string
  */
 function stringTrunc( $string, $limit, $end ) {
-    return ( strlen( $string ) > $limit ) ? substr( $string, 0, $limit ) . $end : $string;
+	return ( strlen( $string ) > $limit ) ? substr( $string, 0, $limit ) . $end : $string;
 }
 
 /**
  * @param $block
  * ACF render blocks
  */
-function my_acf_block_render_callback($block)
-{
+function my_acf_block_render_callback( $block ) {
 	// Example : convert name ("acf/testimonial") into path friendly slug ("testimonial")
-    $slug = str_replace('acf/', '', $block['name']);
+	$slug = str_replace( 'acf/', '', $block['name'] );
 
 	// include a template part from within the "template-parts/block" folder
-	if (file_exists(get_template_directory() . "/templates/block/content-{$slug}.php")) {
-		include(get_template_directory() . "/templates/block/content-{$slug}.php");
+	if ( file_exists( get_template_directory() . "/templates/block/content-{$slug}.php" ) ) {
+		include( get_template_directory() . "/templates/block/content-{$slug}.php" );
 	}
 }

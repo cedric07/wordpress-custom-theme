@@ -2,10 +2,10 @@
 //
 // Style anchor elements.
 
-$link-color:                $link-color !default;
-$link-hover-color:          darken($link-color, 15%) !default;
-$link-decoration:           none !default;
-$link-hover-decoration:     none !default;
+$link-color: $link-color !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-decoration: none !default;
+$link-hover-decoration: none !default;
 
 // Grid breakpoints
 //
@@ -13,11 +13,11 @@ $link-hover-decoration:     none !default;
 // adapting to different screen sizes, for use in media queries.
 
 $grid-breakpoints: (
-        xs: 0,
-        sm: 576px,
-        md: 768px,
-        lg: 992px,
-        xl: 1200px
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
 ) !default;
 
 
@@ -26,10 +26,10 @@ $grid-breakpoints: (
 // Define the maximum width of `.container` for different screen sizes.
 
 $container-max-widths: (
-        sm: 540px,
-        md: 720px,
-        lg: 960px,
-        xl: 1140px
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px
 ) !default;
 
 
@@ -37,5 +37,5 @@ $container-max-widths: (
 //
 // Set the number of columns and specify the width of the gutters.
 
-$grid-columns:                12 !default;
-$grid-gutter-width:           30px !default;
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;

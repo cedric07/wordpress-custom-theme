@@ -4,12 +4,12 @@
 	<!-- section -->
 	<section>
 
-		<h1><?php _e('Categories for ', 'bootstrap4_custom');
+		<h1><?php _e( 'Categories for ', 'bootstrap4_custom' );
 			single_cat_title(); ?></h1>
 
-		<?php get_template_part('loop'); ?>
+		<?php get_template_part( 'loop' ); ?>
 
-		<?php get_template_part('pagination'); ?>
+		<?php get_template_part( 'pagination' ); ?>
 
 	</section>
 	<!-- /section -->

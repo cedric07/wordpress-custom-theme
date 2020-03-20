@@ -4,39 +4,39 @@
 
 img.img-responsive,
 video.video-responsive {
-	max-width: 100%;
-	height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 .hide {
-	display: none !important;
+    display: none !important;
 }
 
 // Text Align
 .left-align {
-	text-align: left;
+    text-align: left;
 }
 
 .right-align {
-	text-align: right
+    text-align: right
 }
 
 .center-align {
-	text-align: center;
+    text-align: center;
 }
 
 // No Text Select
 .no-select {
-	user-select: none;
+    user-select: none;
 }
 
 .circle {
-	border-radius: 50%;
+    border-radius: 50%;
 }
 
 .truncate {
-	display: block;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

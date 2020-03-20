@@ -20,8 +20,9 @@ $(document).ready(function () {
 });
 
 APP.global = {
-	init: function () {  /** init function */
-  	APP.exemple.init();
+	init: function () {
+		/** init function */
+		APP.exemple.init();
 	},
 	onResize: function () {
 		/** onResize function */
@@ -38,11 +39,11 @@ APP.global = {
 };
 
 APP.exemple = {
-  exempleVar: $(),
+	exempleVar: $(),
 
-  init: function() {
-    this.exempleVar = $('.myClass');
+	init: function () {
+		this.exempleVar = $('.myClass');
 
-    APP.exemple.exempleVar.hide();
-  }
+		APP.exemple.exempleVar.hide();
+	}
 };

@@ -7,10 +7,10 @@
 		<!-- article -->
 		<article id="post-404">
 
-			<h1><?php _e('Page not found', 'bootstrap4_custom'); ?></h1>
+			<h1><?php _e( 'Page not found', 'bootstrap4_custom' ); ?></h1>
 			<h2>
 				<a
-					href="<?php echo home_url(); ?>"><?php _e('Return home?', 'bootstrap4_custom'); ?></a>
+					href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'bootstrap4_custom' ); ?></a>
 			</h2>
 
 		</article>

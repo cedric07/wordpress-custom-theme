@@ -4,9 +4,9 @@
  * CSS
  */
 function front_css() {
-	if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
+	if ( $GLOBALS['pagenow'] != 'wp-login.php' && ! is_admin() ) {
 
-		if (defined('WP_DEBUG') && true === WP_DEBUG) {
+		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
 			$vendor_file = '/dist/css/vendors.css';
 			$custom_file = '/dist/css/custom.css';
 		} else {
@@ -14,8 +14,8 @@ function front_css() {
 			$custom_file = '/dist/css/custom.min.css';
 		}
 
-		wp_enqueue_style('vendors', get_stylesheet_directory_uri() . $vendor_file, [], filemtime(get_stylesheet_directory() . $vendor_file), 'all');
-		wp_enqueue_style('main', get_stylesheet_directory_uri() . $custom_file, [], filemtime(get_stylesheet_directory() . $custom_file), 'all');
+		wp_enqueue_style( 'vendors', get_stylesheet_directory_uri() . $vendor_file, [], filemtime( get_stylesheet_directory() . $vendor_file ), 'all' );
+		wp_enqueue_style( 'main', get_stylesheet_directory_uri() . $custom_file, [], filemtime( get_stylesheet_directory() . $custom_file ), 'all' );
 	}
 }
 
@@ -23,9 +23,9 @@ function front_css() {
  * JS
  */
 function front_js() {
-	if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
+	if ( $GLOBALS['pagenow'] != 'wp-login.php' && ! is_admin() ) {
 
-		if (defined('WP_DEBUG') && true === WP_DEBUG) {
+		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
 			$vendor_file = '/dist/js/vendors.js';
 			$custom_file = '/dist/js/custom.js';
 		} else {
@@ -33,8 +33,8 @@ function front_js() {
 			$custom_file = '/dist/js/custom.min.js';
 		}
 
-		wp_register_script('vendors', get_stylesheet_directory_uri() . $vendor_file, [], filemtime(get_stylesheet_directory() . $vendor_file), TRUE);
-		wp_enqueue_script('app', get_stylesheet_directory_uri() . $custom_file, ['vendors'], filemtime(get_stylesheet_directory() . $custom_file), TRUE);
+		wp_register_script( 'vendors', get_stylesheet_directory_uri() . $vendor_file, [], filemtime( get_stylesheet_directory() . $vendor_file ), true );
+		wp_enqueue_script( 'app', get_stylesheet_directory_uri() . $custom_file, [ 'vendors' ], filemtime( get_stylesheet_directory() . $custom_file ), true );
 	}
 }
 
@@ -42,9 +42,9 @@ function front_js() {
  * Register Navigation
  */
 function register_menu() {
-	register_nav_menus([ // Using array to specify more menus if needed
-		'header-menu' => __('Header Menu', 'bootstrap4_custom'), // Main Navigation
-	]);
+	register_nav_menus( [ // Using array to specify more menus if needed
+		'header-menu' => __( 'Header Menu', 'bootstrap4_custom' ), // Main Navigation
+	] );
 }
 
 /**
@@ -80,15 +80,15 @@ if ( function_exists( 'register_sidebar' ) ) {
 function pagination() {
 	global $wp_query;
 	$big = 999999999;
-	echo paginate_links([
-		'base'    => str_replace($big, '%#%', get_pagenum_link($big)),
-		'format'  => '?paged=%#%',
-		'current' => max(1, get_query_var('paged')),
-		'total'   => $wp_query->max_num_pages,
-        'type'      => 'list',
-        'prev_text' => 'prev',
-        'next_text' => 'next',
-	]);
+	echo paginate_links( [
+		'base'      => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+		'format'    => '?paged=%#%',
+		'current'   => max( 1, get_query_var( 'paged' ) ),
+		'total'     => $wp_query->max_num_pages,
+		'type'      => 'list',
+		'prev_text' => 'prev',
+		'next_text' => 'next',
+	] );
 }
 
 /**
@@ -96,14 +96,14 @@ function pagination() {
  */
 function my_theme_setup() {
 	// Nouveauté à ajouter
-	add_theme_support('editor-styles');
+	add_theme_support( 'editor-styles' );
 
-    // Puis la même fonction qu'on utilisait auparavant pour Tiny MCE
-    if (defined('WP_DEBUG') && true === WP_DEBUG) {
-        add_editor_style('/dist/css/style-editor.css');
-    } else {
-        add_editor_style('/dist/css/style-editor.min.css');
-    }
+	// Puis la même fonction qu'on utilisait auparavant pour Tiny MCE
+	if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
+		add_editor_style( '/dist/css/style-editor.css' );
+	} else {
+		add_editor_style( '/dist/css/style-editor.min.css' );
+	}
 
 	// ACTIVER LA FEUILLE DE STYLES PAR DÉFAUT DES BLOCS GUTENBERG
 	add_theme_support( 'wp-block-styles' );
