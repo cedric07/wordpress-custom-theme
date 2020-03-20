@@ -6,9 +6,9 @@
 			echo ' :';
 		} ?><?php bloginfo('name'); ?></title>
 
-	<link href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico"
+	<link href="<?php echo get_template_directory_uri(); ?>/favicon.ico"
 				rel="shortcut icon">
-	<link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png"
+	<link href="<?php echo get_template_directory_uri(); ?>/touch.png"
 				rel="apple-touch-icon-precomposed">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -26,7 +26,7 @@
 			<!-- nav -->
 			<nav>
 				<a href="<?php echo home_url(); ?>">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg"
+					<img src="<?php echo IMG_DEST; ?>logo.svg"
 							 alt="Logo">
 				</a>
 				<?php menu_nav(); ?>

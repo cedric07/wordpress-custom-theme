@@ -19,3 +19,7 @@ require THEME_INCLUDES . '/theme-sub-filters.php';
 
 require THEME_INCLUDES . '/theme-size-images.php';
 require THEME_INCLUDES . '/theme-functions.php';
+
+// Constant
+define( 'IMG_DEST', get_template_directory_uri() . '/dist/img/' );
+

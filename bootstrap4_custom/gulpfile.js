@@ -51,11 +51,16 @@ var jsCustomSRC = './src/js/*.js'; // Path to JS custom scripts folder.
 var jsCustomDestination = './dist/js/'; // Path to place the compiled JS custom scripts file.
 var jsCustomFile = 'custom'; // Compiled JS custom file name.
 
+// Images
+var imgSrc = './src/img/*.{png,jpg,jpeg,gif,svg}'; // Path to source images folder.
+var imgDestination = './dist/img/'; // Path to place the optimised images.
+
 // Watch files paths.
 var styleVendorWatchFiles = './src/css/lib/*.css'; // Path to all vendor CSS files.
 var styleWatchFiles = './src/sass/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
 var vendorJSWatchFiles = './src/js/lib/*.js'; // Path to all vendor JS files.
 var customJSWatchFiles = './src/js/*.js'; // Path to all custom JS files.
+var imagesWatchFiles = './src/img/*.{png,jpg,jpeg,gif,svg}'; // Path to all images files.
 
 
 const {src, dest, watch, series, parallel} = require('gulp');
@@ -203,8 +208,19 @@ function scriptsVendor() {
         .pipe($.notify('Vendors scripts Completed! 💯'))
 }
 
+function images() {
+    return src(imgSrc)
+        .pipe($.imagemin())
+        .pipe(dest(imgDestination))
+        .pipe($.notify('Images minification Completed! 💯'))
+}
+
 function clean() {
     return del(['./dist']);
+}
+
+function cleanImages() {
+    return del(imgDestination);
 }
 
 function watchAssets() {
@@ -212,9 +228,14 @@ function watchAssets() {
     watch(styleWatchFiles, series(styles, stylesEditor)); // Reload on SCSS file changes.
     watch(vendorJSWatchFiles, scriptsVendor); // Reload on vendorsJs file changes.
     watch(customJSWatchFiles, scripts); // Reload on customJS file changes.
+    watch(imagesWatchFiles, series(cleanImages, images)); // Reload on images changes.
 }
 
-const build = series(clean, styles, stylesEditor, stylesVendors, scripts, scriptsVendor);
+const build = series(
+    clean,
+    parallel(styles, stylesEditor, stylesVendors, scripts, scriptsVendor, images)
+);
+
 const watcher = series(build, watchAssets);
 
 exports.default = build;
