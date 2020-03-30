@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Automatic front-end tasks for WordPress",
   "main": "gulpfile.js",
-  "repository": {
-    "type": "git",
-  },
   "author": "Cédric Andrietti",
   "license": "ISC",
   "dependencies": {
