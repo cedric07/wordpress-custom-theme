@@ -5,14 +5,9 @@
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cedric07/blank-theme-wordpress-grid-bootstrap4.git"
   },
   "author": "Cédric Andrietti",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cedric07/blank-theme-wordpress-grid-bootstrap4/issues"
-  },
-  "homepage": "https://github.com/cedric07/blank-theme-wordpress-grid-bootstrap4#readme",
   "dependencies": {
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1"
