@@ -52,7 +52,7 @@ var jsCustomDestination = './dist/js/'; // Path to place the compiled JS custom 
 var jsCustomFile = 'custom'; // Compiled JS custom file name.
 
 // Images
-var imgSrc = './src/img/*.{png,jpg,jpeg,gif,svg}'; // Path to source images folder.
+var imgSrc = './src/img/**/*.{png,jpg,jpeg,gif,svg}'; // Path to source images folder.
 var imgDestination = './dist/img/'; // Path to place the optimised images.
 
 // Watch files paths.
@@ -60,7 +60,7 @@ var styleVendorWatchFiles = './src/css/lib/*.css'; // Path to all vendor CSS fil
 var styleWatchFiles = './src/sass/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
 var vendorJSWatchFiles = './src/js/lib/*.js'; // Path to all vendor JS files.
 var customJSWatchFiles = './src/js/*.js'; // Path to all custom JS files.
-var imagesWatchFiles = './src/img/*.{png,jpg,jpeg,gif,svg}'; // Path to all images files.
+var imagesWatchFiles = './src/img/**/*.{png,jpg,jpeg,gif,svg}'; // Path to all images files.
 
 
 const {src, dest, watch, series, parallel} = require('gulp');
