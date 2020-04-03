@@ -5,13 +5,15 @@
 /*
  * A small mixin for easy use of rem with px as fallback
  * usage: @include x-rem(font-size, 14px)
- * usage: @include x-rem(marign, 0 12px 2 1.2)
- * usage: @include x-rem(padding, 1.5 24px)
+ * usage: @include x-rem(margin, 0 12px 2px 12px)
+ * usage: @include x-rem(margin, 12px auto)
+ * usage: @include x-rem(padding, 24px 35px)
+ * usage: @include x-rem(padding, 24px !important)
  */
 
 @mixin x-rem($property, $values) {
     // Create a couple of empty lists as output buffers.
-    $base-font-size: 16px; // should be consistent with your html/body font-size
+    $base-font-size: 16px;
     $px-values: ();
     $rem-values: ();
 
@@ -31,8 +33,8 @@
             $px-values: join($px-values, round($value));
             $rem-values: join($rem-values, #{ $value / $base-font-size }rem);
 
-        } @else if $value == auto or $value == inherit {
-            // auto or inherit - don't add px or rem
+        } @else if $value == auto or $value == inherit or $value == '!important' {
+            // auto or inherit or !important - don't add px or rem
             $px-values: join($px-values, $value);
             $rem-values: join($rem-values, $value);
         } @else {

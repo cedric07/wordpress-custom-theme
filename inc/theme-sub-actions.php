@@ -15,7 +15,7 @@ function front_css() {
 		}
 
 		wp_enqueue_style( 'vendors', get_stylesheet_directory_uri() . $vendor_file, [], filemtime( get_stylesheet_directory() . $vendor_file ), 'all' );
-		wp_enqueue_style( 'main', get_stylesheet_directory_uri() . $custom_file, [], filemtime( get_stylesheet_directory() . $custom_file ), 'all' );
+		wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . $custom_file, [], filemtime( get_stylesheet_directory() . $custom_file ), 'all' );
 	}
 }
 
@@ -34,7 +34,7 @@ function front_js() {
 		}
 
 		wp_register_script( 'vendors', get_stylesheet_directory_uri() . $vendor_file, [], filemtime( get_stylesheet_directory() . $vendor_file ), true );
-		wp_enqueue_script( 'app', get_stylesheet_directory_uri() . $custom_file, [ 'vendors' ], filemtime( get_stylesheet_directory() . $custom_file ), true );
+		wp_enqueue_script( 'custom', get_stylesheet_directory_uri() . $custom_file, [ 'vendors' ], filemtime( get_stylesheet_directory() . $custom_file ), true );
 	}
 }
 
@@ -43,7 +43,7 @@ function front_js() {
  */
 function register_menu() {
 	register_nav_menus( [ // Using array to specify more menus if needed
-		'header-menu' => __( 'Header Menu', 'bootstrap4_custom' ), // Main Navigation
+		'header-menu' => __( 'Header Menu', 'custom_theme' ), // Main Navigation
 	] );
 }
 
@@ -53,19 +53,9 @@ function register_menu() {
 if ( function_exists( 'register_sidebar' ) ) {
 	// Define Sidebar Widget Area 1
 	register_sidebar( array(
-		'name'          => esc_html( 'Widget Area 1', 'bootstrap4_custom' ),
-		'description'   => esc_html( 'Description for this widget-area...', 'bootstrap4_custom' ),
+		'name'          => esc_html( 'Widget Area 1', 'custom_theme' ),
+		'description'   => esc_html( 'Description for this widget-area...', 'custom_theme' ),
 		'id'            => 'widget-area-1',
-		'before_widget' => '<div id="%1$s" class="%2$s">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h3>',
-		'after_title'   => '</h3>',
-	) );
-	// Define Sidebar Widget Area 2
-	register_sidebar( array(
-		'name'          => esc_html( 'Widget Area 2', 'bootstrap4_custom' ),
-		'description'   => esc_html( 'Description for this widget-area...', 'bootstrap4_custom' ),
-		'id'            => 'widget-area-2',
 		'before_widget' => '<div id="%1$s" class="%2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h3>',

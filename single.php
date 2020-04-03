@@ -28,20 +28,20 @@
 				<span
 					class="date"><?php the_time( 'F j, Y' ); ?><?php the_time( 'g:i a' ); ?></span>
 				<span
-					class="author"><?php _e( 'Published by', 'bootstrap4_custom' ); ?><?php the_author_posts_link(); ?></span>
+					class="author"><?php _e( 'Published by', 'custom_theme' ); ?><?php the_author_posts_link(); ?></span>
 				<span class="comments"><?php if ( comments_open( get_the_ID() ) ) {
-						comments_popup_link( __( 'Leave your thoughts', 'bootstrap4_custom' ), __( '1 Comment', 'bootstrap4_custom' ), __( '% Comments', 'bootstrap4_custom' ) );
+						comments_popup_link( __( 'Leave your thoughts', 'custom_theme' ), __( '1 Comment', 'custom_theme' ), __( '% Comments', 'custom_theme' ) );
 					} ?></span>
 				<!-- /post details -->
 
 				<?php the_content(); // Dynamic Content ?>
 
-				<?php the_tags( __( 'Tags: ', 'bootstrap4_custom' ), ', ', '<br>' ); // Separated by commas with a line break at the end ?>
+				<?php the_tags( __( 'Tags: ', 'custom_theme' ), ', ', '<br>' ); // Separated by commas with a line break at the end ?>
 
-				<p><?php _e( 'Categorised in: ', 'bootstrap4_custom' );
+				<p><?php _e( 'Categorised in: ', 'custom_theme' );
 					the_category( ', ' ); // Separated by commas ?></p>
 
-				<p><?php _e( 'This post was written by ', 'bootstrap4_custom' );
+				<p><?php _e( 'This post was written by ', 'custom_theme' );
 					the_author(); ?></p>
 
 				<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
@@ -58,7 +58,7 @@
 			<!-- article -->
 			<article>
 
-				<h1><?php _e( 'Sorry, nothing to display.', 'bootstrap4_custom' ); ?></h1>
+				<h1><?php _e( 'Sorry, nothing to display.', 'custom_theme' ); ?></h1>
 
 			</article>
 			<!-- /article -->
