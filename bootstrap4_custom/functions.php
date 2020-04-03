@@ -18,6 +18,7 @@ require THEME_INCLUDES . '/theme-filters.php';
 require THEME_INCLUDES . '/theme-sub-filters.php';
 
 require THEME_INCLUDES . '/theme-size-images.php';
+require THEME_INCLUDES . '/theme-acf.php';
 require THEME_INCLUDES . '/theme-functions.php';
 
 // Constant
