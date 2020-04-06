@@ -30,7 +30,7 @@ get_header(); ?>
 			<!-- article -->
 			<article>
 
-				<h2><?php _e( 'Sorry, nothing to display.', 'custom_theme' ); ?></h2>
+				<h2><?php _e( 'Sorry, nothing to display.', 'your_text_domain' ); ?></h2>
 
 			</article>
 			<!-- /article -->

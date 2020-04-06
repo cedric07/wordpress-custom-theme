@@ -12,33 +12,33 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 
 	$acf_options_pages    = array();
 	$acf_options_pages[0] = array(
-		'page_title' => __( 'Theme General Settings', 'custom_theme' ),
-		'menu_title' => __( 'Theme Settings', 'custom_theme' ),
+		'page_title' => __( 'Theme General Settings', 'your_text_domain' ),
+		'menu_title' => __( 'Theme Settings', 'your_text_domain' ),
 		'menu_slug'  => 'theme-general-settings',
 		'capability' => 'edit_posts',
 		'redirect'   => true,
 	);
 	$acf_options_pages[]  = [
-		'page_title'          => __( 'Header Settings', 'custom_theme' ),
-		'menu_title'          => __( 'Header', 'custom_theme' ),
+		'page_title'          => __( 'Header Settings', 'your_text_domain' ),
+		'menu_title'          => __( 'Header', 'your_text_domain' ),
 		'parent_slug'         => 'theme-general-settings',
 		'acf_json_group_name' => 'header'
 	];
 	$acf_options_pages[]  = [
-		'page_title'          => __( 'Footer Settings', 'custom_theme' ),
-		'menu_title'          => __( 'Footer', 'custom_theme' ),
+		'page_title'          => __( 'Footer Settings', 'your_text_domain' ),
+		'menu_title'          => __( 'Footer', 'your_text_domain' ),
 		'parent_slug'         => 'theme-general-settings',
 		'acf_json_group_name' => 'footer'
 	];
 	$acf_options_pages[]  = [
-		'page_title'          => __( '404 page Settings', 'custom_theme' ),
-		'menu_title'          => __( '404 page', 'custom_theme' ),
+		'page_title'          => __( '404 page Settings', 'your_text_domain' ),
+		'menu_title'          => __( '404 page', 'your_text_domain' ),
 		'parent_slug'         => 'theme-general-settings',
 		'acf_json_group_name' => '404_page'
 	];
 	$acf_options_pages[]  = [
-		'page_title'          => __( 'General Settings', 'custom_theme' ),
-		'menu_title'          => __( 'General', 'custom_theme' ),
+		'page_title'          => __( 'General Settings', 'your_text_domain' ),
+		'menu_title'          => __( 'General', 'your_text_domain' ),
 		'parent_slug'         => 'theme-general-settings',
 		'acf_json_group_name' => 'general'
 	];
@@ -115,7 +115,7 @@ function my_acf_block_categories( $categories, $post ) {
 		array(
 			array(
 				'slug'  => 'custom-cat',
-				'title' => __( 'Custom blocks', 'custom_theme' )
+				'title' => __( 'Custom blocks', 'your_text_domain' )
 			),
 		)
 	);

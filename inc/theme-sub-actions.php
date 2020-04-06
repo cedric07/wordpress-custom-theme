@@ -43,7 +43,7 @@ function front_js() {
  */
 function register_menu() {
 	register_nav_menus( [ // Using array to specify more menus if needed
-		'header-menu' => __( 'Header Menu', 'custom_theme' ), // Main Navigation
+		'header-menu' => __( 'Header Menu', 'your_text_domain' ), // Main Navigation
 	] );
 }
 
@@ -53,8 +53,8 @@ function register_menu() {
 if ( function_exists( 'register_sidebar' ) ) {
 	// Define Sidebar Widget Area 1
 	register_sidebar( array(
-		'name'          => esc_html( 'Widget Area 1', 'custom_theme' ),
-		'description'   => esc_html( 'Description for this widget-area...', 'custom_theme' ),
+		'name'          => esc_html( 'Widget Area 1', 'your_text_domain' ),
+		'description'   => esc_html( 'Description for this widget-area...', 'your_text_domain' ),
 		'id'            => 'widget-area-1',
 		'before_widget' => '<div id="%1$s" class="%2$s">',
 		'after_widget'  => '</div>',

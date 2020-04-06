@@ -21,7 +21,7 @@
 
 # Mise en place du thème
 
-### 1) Renommer le thème et le Text Domain `custom_theme`
+### 1) Renommer le thème et le Text Domain `your_text_domain`
 
 ### 2) Installer les composants et dépendances :
 

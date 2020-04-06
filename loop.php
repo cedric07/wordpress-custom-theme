@@ -25,9 +25,9 @@
 		<span
 			class="date"><?php the_time( 'F j, Y' ); ?><?php the_time( 'g:i a' ); ?></span>
 		<span
-			class="author"><?php _e( 'Published by', 'custom_theme' ); ?><?php the_author_posts_link(); ?></span>
+			class="author"><?php _e( 'Published by', 'your_text_domain' ); ?><?php the_author_posts_link(); ?></span>
 		<span class="comments"><?php if ( comments_open( get_the_ID() ) ) {
-				comments_popup_link( __( 'Leave your thoughts', 'custom_theme' ), __( '1 Comment', 'custom_theme' ), __( '% Comments', 'custom_theme' ) );
+				comments_popup_link( __( 'Leave your thoughts', 'your_text_domain' ), __( '1 Comment', 'your_text_domain' ), __( '% Comments', 'your_text_domain' ) );
 			} ?></span>
 		<!-- /post details -->
 
@@ -44,7 +44,7 @@
 
 	<!-- article -->
 	<article>
-		<h2><?php _e( 'Sorry, nothing to display.', 'custom_theme' ); ?></h2>
+		<h2><?php _e( 'Sorry, nothing to display.', 'your_text_domain' ); ?></h2>
 	</article>
 	<!-- /article -->
 
