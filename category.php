@@ -4,8 +4,8 @@
 	<!-- section -->
 	<section>
 
-		<h1><?php echo sprintf( __( '%s Search Results for ', 'bootstrap4_custom' ), $wp_query->found_posts );
-			echo get_search_query(); ?></h1>
+		<h1><?php _e( 'Categories for ', 'custom_theme' );
+			single_cat_title(); ?></h1>
 
 		<?php get_template_part( 'loop' ); ?>
 

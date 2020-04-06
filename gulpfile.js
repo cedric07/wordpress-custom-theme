@@ -6,10 +6,11 @@
  * Implements:
  *      1. CSS: Sass to CSS conversion, error catching, Autoprefixing, Sourcemaps,
  *         CSS minification.
- *      2. JS: Concatenates & uglifies Vendor and Custom JS files.
- *      3. Watches files for changes in CSS or JS.
+ *      2. JS: Concatenates & uglifies Vendor and Custom JS files.`
+ *      3. Images : Image minification
+ *      4. Watches files for changes in CSS, JS or Images.
  *
- * @author Cédric
+ * @author Cédric Andrietti
  * @version 1.0.0
  */
 

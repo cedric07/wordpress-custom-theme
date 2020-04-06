@@ -1,6 +1,5 @@
-bootstrap4_custom/dist/
-bootstrap4_custom/style-editor.css
-bootstrap4_custom/node_modules/
+/dist/
+/node_modules/
 
 # PhpStorm
 .idea

@@ -4,7 +4,8 @@
 	<!-- section -->
 	<section>
 
-		<h1><?php _e( 'Archives', 'bootstrap4_custom' ); ?></h1>
+		<h1><?php _e( 'Tag Archive: ', 'custom_theme' );
+			echo single_tag_title( '', false ); ?></h1>
 
 		<?php get_template_part( 'loop' ); ?>
 

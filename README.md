@@ -1,30 +1,24 @@
 # Mise en place du thème
 
-### Copiez le thème dans votre dossier "themes" du wordpress
+### 1) Renommer le thème et le Text Domain `custom_theme`
 
-### Renommer le thème et le "Text Domain" si besoin et se rendre à l'intérieur de ce dernier :
-
-```sh
-cd wp-content/themes/bootstrap4_custom
-```
-
-### Installer les composants et dépendances :
+### 2) Installer les composants et dépendances :
 
 ```sh
 yarn install
 ```
 
-### Compilation et concaténation des fichiers :
+### 2) Compilation et concaténation des fichiers :
 
 ```sh
-yarn run build
+yarn build
 ```
 
 Pour le watch :
 
 ```sh
-yarn run watch
+yarn watch
 ```
 
-### Librairie d'éléments :
-https://your-url.local/wp-content/themes/bootstrap4_custom/src/library/library.html
+### Starter kit :
+https://your-url.local/wp-content/themes/your_theme/src/library/library.html
