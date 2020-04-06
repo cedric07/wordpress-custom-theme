@@ -15,7 +15,8 @@ if ( function_exists( 'add_theme_support' ) ) {
 // Global actions
 add_action( 'init', 'register_menu' );
 add_action( 'init', 'pagination' );
-add_action( 'after_setup_theme', 'my_theme_setup' );
+add_action( 'after_setup_theme', 'editor_setup' );
+add_action( 'after_setup_theme', 'language_setup' );
 
 // Blocks Gutenberg
 add_action( 'acf/init', 'my_acf_init' );

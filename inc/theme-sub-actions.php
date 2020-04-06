@@ -53,8 +53,8 @@ function register_menu() {
 if ( function_exists( 'register_sidebar' ) ) {
 	// Define Sidebar Widget Area 1
 	register_sidebar( array(
-		'name'          => esc_html( 'Widget Area 1', 'your_text_domain' ),
-		'description'   => esc_html( 'Description for this widget-area...', 'your_text_domain' ),
+		'name'          => __( 'Widget Area 1', 'your_text_domain' ),
+		'description'   => __( 'Description for this widget-area...', 'your_text_domain' ),
 		'id'            => 'widget-area-1',
 		'before_widget' => '<div id="%1$s" class="%2$s">',
 		'after_widget'  => '</div>',
@@ -84,7 +84,7 @@ function pagination() {
 /**
  * Theme setup
  */
-function my_theme_setup() {
+function editor_setup() {
 	// Nouveauté à ajouter
 	add_theme_support( 'editor-styles' );
 
@@ -97,4 +97,11 @@ function my_theme_setup() {
 
 	// ACTIVER LA FEUILLE DE STYLES PAR DÉFAUT DES BLOCS GUTENBERG
 	add_theme_support( 'wp-block-styles' );
+}
+
+/**
+ * Theme language
+ */
+function language_setup(){
+	load_theme_textdomain('your_text_domain', get_template_directory() . '/languages');
 }

@@ -19,6 +19,12 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		'redirect'   => true,
 	);
 	$acf_options_pages[]  = [
+		'page_title'          => __( 'General Settings', 'your_text_domain' ),
+		'menu_title'          => __( 'General', 'your_text_domain' ),
+		'parent_slug'         => 'theme-general-settings',
+		'acf_json_group_name' => 'general'
+	];
+	$acf_options_pages[]  = [
 		'page_title'          => __( 'Header Settings', 'your_text_domain' ),
 		'menu_title'          => __( 'Header', 'your_text_domain' ),
 		'parent_slug'         => 'theme-general-settings',
@@ -36,12 +42,6 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		'parent_slug'         => 'theme-general-settings',
 		'acf_json_group_name' => '404_page'
 	];
-	$acf_options_pages[]  = [
-		'page_title'          => __( 'General Settings', 'your_text_domain' ),
-		'menu_title'          => __( 'General', 'your_text_domain' ),
-		'parent_slug'         => 'theme-general-settings',
-		'acf_json_group_name' => 'general'
-	];
 
 	foreach ( $acf_options_pages as $key => $acf_option ) {
 		// creation de la page d'option
@@ -54,7 +54,7 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 			if ( ! file_exists( THEME_ACF_JSON . '/' . $acf_json_group_name . '.json' ) ) {
 				$json_data = '{
 					"key": "' . $acf_json_group_name . '",
-					"title": "Thème options - ' . $acf_option['menu_title'] . '",
+					"title": "Theme options - ' . $acf_option['menu_title'] . '",
 					"fields": [],
 					"location": [
 						[

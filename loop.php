@@ -23,7 +23,7 @@
 
 		<!-- post details -->
 		<span
-			class="date"><?php the_time( 'F j, Y' ); ?><?php the_time( 'g:i a' ); ?></span>
+			class="date"><?php the_date(); ?></span>
 		<span
 			class="author"><?php _e( 'Published by', 'your_text_domain' ); ?><?php the_author_posts_link(); ?></span>
 		<span class="comments"><?php if ( comments_open( get_the_ID() ) ) {
