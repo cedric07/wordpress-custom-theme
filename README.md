@@ -41,7 +41,7 @@ Pour le watch :
 yarn watch
 ```
 
-# Starter kit :
+### Starter kit :
 https://your-url.local/wp-content/themes/your_theme/src/library/library.html
 
 # Gestion des dépendances
