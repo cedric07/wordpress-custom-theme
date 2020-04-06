@@ -206,17 +206,3 @@ function ajouterParametreGET( $url, $paramNom, $paramValeur ) {
 
 	return $urlFinal;
 }
-
-/**
- * @param $block
- * ACF render blocks
- */
-function my_acf_block_render_callback( $block ) {
-	// Example : convert name ("acf/testimonial") into path friendly slug ("testimonial")
-	$slug = str_replace( 'acf/', '', $block['name'] );
-
-	// include a template part from within the "template-parts/block" folder
-	if ( file_exists( get_template_directory() . "/templates/block/content-{$slug}.php" ) ) {
-		include( get_template_directory() . "/templates/block/content-{$slug}.php" );
-	}
-}

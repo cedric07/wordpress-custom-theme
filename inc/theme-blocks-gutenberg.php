@@ -11,7 +11,7 @@ function my_acf_init() {
 			'title'           => __( 'Bloc de test' ),
 			'description'     => __( 'Bloc de test Gutenberg.' ),
 			'render_callback' => 'my_acf_block_render_callback',
-			'category'        => 'formatting',
+			'category'        => 'custom-cat',
 			'icon'            => 'editor-ol',
 			'keywords'        => array( 'test', 'bloc' ),
 		) );
