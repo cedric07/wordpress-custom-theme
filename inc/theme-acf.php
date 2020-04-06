@@ -47,10 +47,12 @@ if ( function_exists( 'acf_add_options_page' ) ) {
         // creation de la page d'option
         acf_add_options_page($acf_option);
         // création du groupe ACF et json correspondant
-        $acf_json_group_name = 'group_theme_options_' . $acf_option['acf_json_group_name'];
+        if (isset($acf_option['acf_json_group_name'] && $acf_option['acf_json_group_name'] != '') {
 
-        if (isset($acf_option['acf_json_group_name']) && !file_exists(THEME_ACF_JSON . '/' . $acf_json_group_name . '.json')) {
-            $json_data = '{
+            $acf_json_group_name = 'group_theme_options_' . $acf_option['acf_json_group_name'];
+
+            if (!file_exists(THEME_ACF_JSON . '/' . $acf_json_group_name . '.json')) {
+                $json_data = '{
     "key": "' . $acf_json_group_name . '",
     "title": "Thème options - ' . $acf_option['menu_title'] . '",
     "fields": [],
@@ -74,9 +76,10 @@ if ( function_exists( 'acf_add_options_page' ) ) {
     "modified": ' . time() . '
 }';
 
-            $fp = fopen(THEME_ACF_JSON . '/' . $acf_json_group_name . '.json', 'w');
-            fwrite($fp, $json_data);
-            fclose($fp);
+                $fp = fopen(THEME_ACF_JSON . '/' . $acf_json_group_name . '.json', 'w');
+                fwrite($fp, $json_data);
+                fclose($fp);
+            }
         }
     }
 }
