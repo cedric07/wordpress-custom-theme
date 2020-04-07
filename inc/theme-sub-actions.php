@@ -47,64 +47,51 @@ function front_js() {
 }
 
 /**
- * Register Navigation
+ * Register Menus
  */
-function register_menu() {
-	register_nav_menus( [ // Using array to specify more menus if needed
-		'header-menu' => __( 'Header Menu', 'your_text_domain' ), // Main Navigation
-	] );
-}
-
-/**
- * Register Sidebar
- */
-if ( function_exists( 'register_sidebar' ) ) {
-	// Define Sidebar Widget Area 1
-	register_sidebar( array(
-		'name'          => __( 'Widget Area 1', 'your_text_domain' ),
-		'description'   => __( 'Description for this widget-area...', 'your_text_domain' ),
-		'id'            => 'widget-area-1',
-		'before_widget' => '<div id="%1$s" class="%2$s">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h3>',
-		'after_title'   => '</h3>',
-	) );
-}
-
-/**
- * Pagination for paged posts, Page 1, Page 2, Page 3, with Next and Previous
- * Links, No plugin
- */
-function pagination() {
-	global $wp_query;
-	$big = 999999999;
-	echo paginate_links( [
-		'base'      => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
-		'format'    => '?paged=%#%',
-		'current'   => max( 1, get_query_var( 'paged' ) ),
-		'total'     => $wp_query->max_num_pages,
-		'type'      => 'list',
-		'prev_text' => 'prev',
-		'next_text' => 'next',
-	] );
-}
-
-/**
- * Theme setup
- */
-function editor_setup() {
-	// Nouveauté à ajouter
-	add_theme_support( 'editor-styles' );
-
-	// Puis la même fonction qu'on utilisait auparavant pour Tiny MCE
-	if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-		add_editor_style( '/dist/css/style-editor.css' );
-	} else {
-		add_editor_style( '/dist/css/style-editor.min.css' );
+function my_menus() {
+	if ( function_exists( 'register_nav_menus' ) ) {
+		register_nav_menus( [ // Using array to specify more menus if needed
+			'header-menu' => __( 'Header Menu', 'your_text_domain' ), // Main Navigation
+		] );
 	}
+}
 
-	// ACTIVER LA FEUILLE DE STYLES PAR DÉFAUT DES BLOCS GUTENBERG
-	add_theme_support( 'wp-block-styles' );
+/**
+ * Register Sidebars
+ */
+function my_sidebars() {
+	if ( function_exists( 'register_sidebar' ) ) {
+		// Define Sidebar Widget Area 1
+		register_sidebar( array(
+			'name'          => __( 'Widget Area 1', 'your_text_domain' ),
+			'description'   => __( 'Description for this widget-area...', 'your_text_domain' ),
+			'id'            => 'widget-area-1',
+			'before_widget' => '<div id="%1$s" class="%2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3>',
+			'after_title'   => '</h3>',
+		) );
+	}
+}
+
+/**
+ * Editor style
+ */
+function editor_style() {
+	if ( function_exists( 'add_theme_support' ) ) {
+		add_theme_support( 'editor-styles' );
+
+		// Load editor style
+		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
+			add_editor_style( '/dist/css/style-editor.css' );
+		} else {
+			add_editor_style( '/dist/css/style-editor.min.css' );
+		}
+
+		// Default stylesheet for gutenberg blocks
+		add_theme_support( 'wp-block-styles' );
+	}
 }
 
 /**
@@ -112,4 +99,11 @@ function editor_setup() {
  */
 function language_setup() {
 	load_theme_textdomain( 'your_text_domain', get_template_directory() . '/languages' );
+}
+
+/**
+ * Remove Editor menu on Appearance >> Editor
+ */
+function remove_editor_menu() {
+	remove_action( 'admin_menu', '_add_themes_utility_last', 101 );
 }

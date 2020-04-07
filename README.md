@@ -44,17 +44,30 @@ yarn watch
 ### Starter kit :
 https://your-url.local/wp-content/themes/your_theme/src/library/library.html
 
+### Gestion des traductions :
+Pour générer le fichier `.pot` avec wp-cli
+```sh
+wp i18n make-pot . languages/wordpress-custom-theme.pot
+```
+
 # Gestion des dépendances
-https://classic.yarnpkg.com/fr/docs/cli/add
 
 ### Pour ajouter une dépendance :
+https://classic.yarnpkg.com/fr/docs/cli/add
 
 ```sh
 yarn add [package-name]
 ```
 
-### Pour ajouter une dépendance de développement :
+Pour une dépendance de développement :
 
 ```sh
 yarn add [package-name] --dev
+```
+
+### Pour supprimer une dépendance :
+https://classic.yarnpkg.com/fr/docs/cli/remove
+
+```sh
+yarn remove [package-name]
 ```

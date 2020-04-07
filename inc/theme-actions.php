@@ -4,22 +4,16 @@
 add_action( 'wp_enqueue_scripts', 'front_css' );
 add_action( 'wp_enqueue_scripts', 'front_js' );
 
-if ( function_exists( 'add_theme_support' ) ) {
-	// Add Menu Support
-	add_theme_support( 'menus' );
-
-	// Enables post and comment RSS feed links to head
-	add_theme_support( 'automatic-feed-links' );
-}
-
 // Global actions
-add_action( 'init', 'register_menu' );
-add_action( 'init', 'pagination' );
-add_action( 'after_setup_theme', 'editor_setup' );
-add_action( 'after_setup_theme', 'language_setup' );
+add_action( 'after_setup_theme', 'editor_style' ); // Editor style
+add_action( 'after_setup_theme', 'language_setup' ); // Theme language
+add_action( 'after_setup_theme', 'my_menus' ); // Register Menus
+add_action( 'widgets_init', 'my_sidebars' ); // Register Sidebars
+add_action('_admin_menu', 'remove_editor_menu', 1); // Remove Editor menu on Appearance >> Editor
 
-// Blocks Gutenberg
-add_action( 'acf/init', 'my_acf_init' );
+// ACF
+add_action( 'acf/init', 'my_acf_theme_options' ); // ACF Theme Options
+add_action( 'acf/init', 'my_acf_gutenberg_blocks' ); // ACF Blocks Gutenberg
 
 // Remove Actions
 remove_action( 'wp_head', 'feed_links_extra', 3 ); // Display the links to the extra feeds such as category feeds
@@ -34,4 +28,3 @@ remove_action( 'wp_head', 'wp_generator' ); // Display the XHTML generator that 
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 remove_action( 'wp_head', 'rel_canonical' );
 remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
-remove_action( 'admin_menu', '_add_themes_utility_last', 101 );

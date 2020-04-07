@@ -2,20 +2,20 @@
 # This file is distributed under the .
 msgid ""
 msgstr ""
-"Project-Id-Version: Custom Theme 1.0.0\n"
+"Project-Id-Version: WordPress Custom Theme 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wordpress-custom-theme\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-04-06T19:45:20+00:00\n"
+"POT-Creation-Date: 2020-04-07T18:26:15+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: your_text_domain\n"
 
 #. Theme Name of the theme
-msgid "Custom Theme"
+msgid "WordPress Custom Theme"
 msgstr ""
 
 #. Author of the theme
@@ -94,19 +94,19 @@ msgstr ""
 msgid "Powered by"
 msgstr ""
 
-#: inc/theme-acf.php:15
+#: inc/theme-acf.php:14
 msgid "Theme General Settings"
 msgstr ""
 
-#: inc/theme-acf.php:16
+#: inc/theme-acf.php:15
 msgid "Theme Settings"
 msgstr ""
 
-#: inc/theme-acf.php:22
+#: inc/theme-acf.php:21
 msgid "General Settings"
 msgstr ""
 
-#: inc/theme-acf.php:23
+#: inc/theme-acf.php:22
 msgid "General"
 msgstr ""
 
@@ -118,35 +118,43 @@ msgstr ""
 msgid "Header"
 msgstr ""
 
-#: inc/theme-acf.php:34
+#: inc/theme-acf.php:35
 msgid "Footer Settings"
 msgstr ""
 
-#: inc/theme-acf.php:35
+#: inc/theme-acf.php:36
 msgid "Footer"
 msgstr ""
 
-#: inc/theme-acf.php:40
+#: inc/theme-acf.php:42
 msgid "404 page Settings"
 msgstr ""
 
-#: inc/theme-acf.php:41
+#: inc/theme-acf.php:43
 msgid "404 page"
 msgstr ""
 
-#: inc/theme-acf.php:118
+#: inc/theme-acf.php:104
 msgid "Custom blocks"
 msgstr ""
 
-#: inc/theme-sub-actions.php:46
+#: inc/theme-acf.php:134
+msgid "Test block"
+msgstr ""
+
+#: inc/theme-acf.php:135
+msgid "A custom test block Gutenberg."
+msgstr ""
+
+#: inc/theme-sub-actions.php:55
 msgid "Header Menu"
 msgstr ""
 
-#: inc/theme-sub-actions.php:56
+#: inc/theme-sub-actions.php:67
 msgid "Widget Area 1"
 msgstr ""
 
-#: inc/theme-sub-actions.php:57
+#: inc/theme-sub-actions.php:68
 msgid "Description for this widget-area..."
 msgstr ""
 
@@ -154,7 +162,7 @@ msgstr ""
 msgid "View Article"
 msgstr ""
 
-#: index.php:4
+#: index.php:7
 msgid "Latest Posts"
 msgstr ""
 

@@ -2,11 +2,11 @@
 # This file is distributed under the .
 msgid ""
 msgstr ""
-"Project-Id-Version: Custom Theme 1.0.0\n"
+"Project-Id-Version: WordPress Custom Theme 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wordpress-custom-"
 "theme\n"
-"POT-Creation-Date: 2020-04-06T19:45:20+00:00\n"
-"PO-Revision-Date: 2020-04-06 21:46+0200\n"
+"POT-Creation-Date: 2020-04-07T18:26:15+00:00\n"
+"PO-Revision-Date: 2020-04-07 20:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 
 #. Theme Name of the theme
-msgid "Custom Theme"
+msgid "WordPress Custom Theme"
 msgstr ""
 
 #. Author of the theme
@@ -89,59 +89,67 @@ msgstr "Les commentaires sont fermés."
 msgid "Powered by"
 msgstr "Site réalisé par"
 
-#: inc/theme-acf.php:15
+#: inc/theme-acf.php:14
 msgid "Theme General Settings"
-msgstr ""
+msgstr "Options générales du thème"
 
-#: inc/theme-acf.php:16
+#: inc/theme-acf.php:15
 msgid "Theme Settings"
-msgstr ""
+msgstr "Options du thème"
+
+#: inc/theme-acf.php:21
+msgid "General Settings"
+msgstr "Options générales"
 
 #: inc/theme-acf.php:22
-msgid "General Settings"
-msgstr ""
-
-#: inc/theme-acf.php:23
 msgid "General"
-msgstr ""
+msgstr "Général"
 
 #: inc/theme-acf.php:28
 msgid "Header Settings"
-msgstr ""
+msgstr "Options du Header"
 
 #: inc/theme-acf.php:29
 msgid "Header"
-msgstr ""
-
-#: inc/theme-acf.php:34
-msgid "Footer Settings"
-msgstr ""
+msgstr "Header"
 
 #: inc/theme-acf.php:35
+msgid "Footer Settings"
+msgstr "Options du Footer"
+
+#: inc/theme-acf.php:36
 msgid "Footer"
-msgstr ""
+msgstr "Footer"
 
-#: inc/theme-acf.php:40
+#: inc/theme-acf.php:42
 msgid "404 page Settings"
-msgstr ""
+msgstr "Options de la page 404"
 
-#: inc/theme-acf.php:41
+#: inc/theme-acf.php:43
 msgid "404 page"
-msgstr ""
+msgstr "Page 404"
 
-#: inc/theme-acf.php:118
+#: inc/theme-acf.php:104
 msgid "Custom blocks"
 msgstr "Blocs personnalisés"
 
-#: inc/theme-sub-actions.php:46
+#: inc/theme-acf.php:134
+msgid "Test block"
+msgstr "Bloc de test"
+
+#: inc/theme-acf.php:135
+msgid "A custom test block Gutenberg."
+msgstr "Un bloc custom Gutenberg."
+
+#: inc/theme-sub-actions.php:55
 msgid "Header Menu"
 msgstr "Menu Header"
 
-#: inc/theme-sub-actions.php:56
+#: inc/theme-sub-actions.php:67
 msgid "Widget Area 1"
 msgstr "Zone de widget 1"
 
-#: inc/theme-sub-actions.php:57
+#: inc/theme-sub-actions.php:68
 msgid "Description for this widget-area..."
 msgstr "Description pour cette zone de widget."
 
@@ -149,7 +157,7 @@ msgstr "Description pour cette zone de widget."
 msgid "View Article"
 msgstr "Voir l’article"
 
-#: index.php:4
+#: index.php:7
 msgid "Latest Posts"
 msgstr "Les derniers articles"
 
