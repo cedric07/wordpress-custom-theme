@@ -44,7 +44,7 @@ yarn watch
 ### Starter kit :
 https://your-url.local/wp-content/themes/your_theme/src/library/library.html
 
-### Gestion des traductions :
+# Gestion des traductions :
 Pour générer le fichier `.pot` avec wp-cli
 ```sh
 wp i18n make-pot . languages/wordpress-custom-theme.pot
