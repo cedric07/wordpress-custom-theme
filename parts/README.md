@@ -1,6 +1,6 @@
 # PARTS
 
-Ce répertoire contient les parts ou blocs du thème qui sont appelés via la fonction `get_template_part()`
+Ce répertoire contient les parts/blocs personnalisés (réutilisables ou non) du thème qui sont appelés via la fonction `get_template_part()`
 
 Il contient également les blocs ACF Gutenberg.
 
