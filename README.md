@@ -26,6 +26,8 @@
 - Synchronisation automatique des champs ACF
 - Fonctions utiles
 
+___
+
 # Mise en place du thème
 
 ## 1) Renommer le thème et le Text Domain `your_text_domain`
@@ -51,11 +53,15 @@ yarn watch
 ## UI kit :
 https://your-url.local/wp-content/themes/your_theme/src/ui-kit/index.html
 
+___
+
 # Gestion des traductions :
 Pour générer le fichier `.pot` avec wp-cli
 ```sh
 wp i18n make-pot . languages/wordpress-custom-theme.pot
 ```
+
+___
 
 # Gestion des dépendances
 
