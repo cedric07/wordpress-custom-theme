@@ -11,5 +11,7 @@ Elles sont séparées dans plusieurs fichiers pour une meilleure lisibilité :
 - `theme-filters.php` : contient l'appel aux filtres globaux du thème. Plus d'information [ici](https://developer.wordpress.org/reference/functions/add_filter/)
 - `theme-size-images.php` : contient les tailles d'images personnalisées. Plus d'information [ici](https://developer.wordpress.org/reference/functions/add_image_size/)
 - `theme-functions.php` : contient les fonctions réutilisables dans le thème
+- `theme-post-types.php` : contient la déclaration des custom post types. Générateur [ici](https://generatewp.com/post-type/)
+- `theme-taxonomies.php` : contient la déclaration des custom taxonomies. Générateur [ici](https://generatewp.com/taxonomy/)
 
 Tous ces fichiers sont directement appelés via le fichier `function.php`

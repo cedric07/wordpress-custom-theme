@@ -15,6 +15,12 @@ add_action('_admin_menu', 'remove_editor_menu', 1); // Remove Editor menu on App
 add_action( 'acf/init', 'my_acf_theme_options' ); // ACF Theme Options
 add_action( 'acf/init', 'my_acf_gutenberg_blocks' ); // ACF Blocks Gutenberg
 
+// Post types
+add_action( 'init', 'custom_post_type', 0 );
+
+// Taxonomies
+add_action( 'init', 'custom_taxonomy', 0 );
+
 // Remove Actions
 remove_action( 'wp_head', 'feed_links_extra', 3 ); // Display the links to the extra feeds such as category feeds
 remove_action( 'wp_head', 'feed_links', 2 ); // Display the links to the general feeds: Post and Comment Feed

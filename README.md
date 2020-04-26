@@ -1,23 +1,25 @@
 # Fonctionnalités
 - Grille et reboot Bootstrap 4
 - UI kit
-- Compilation des assets (CSS, JS, images) avec Gulp
+- Gestion des custom post types et custom taxonomies
+- Emplacements de menus
+- Gestion des tailles d'images personnalisées
+- Zones de widgets
+- Pagination
+- Templates de page
+- Blocs ACF Gutenberg
+- Options du thème avec ACF et création automatique des groupes de champs associés
+- Synchronisation automatique des champs ACF
+- Fonctions utiles
+- Compilation des assets (CSS, JS, images, fonts) avec Gulp
     - Compilation des fichiers .scss
     - Concaténation des fichiers .css et .js
     - JSHint
     - Autoprefixer
     - Sourcemaps
     - Minification des images du thème
+    - Copie des fonts
     - Notifications
-- Zone de widget
-- Emplacement de menu
-- Gestion des tailles d'images personnalisées
-- Pagination
-- Template de page
-- Bloc ACF Gutenberg
-- Options du thème avec ACF et création automatique des groupes de champs associés
-- Synchronisation automatique des champs ACF
-- Fonctions utiles
 
 # Mise en place du thème
 

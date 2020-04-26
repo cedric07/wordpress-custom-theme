@@ -15,6 +15,9 @@ require THEME_INCLUDES . '/theme-sub-filters.php';
 require THEME_INCLUDES . '/theme-size-images.php';
 require THEME_INCLUDES . '/theme-functions.php';
 
+require THEME_INCLUDES . '/theme-post-types.php';
+require THEME_INCLUDES . '/theme-taxonomies.php';
+
 require THEME_INCLUDES . '/theme-acf.php';
 
 // Constant
