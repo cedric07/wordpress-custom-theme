@@ -1,6 +1,6 @@
 # Fonctionnalités
 
-## Front
+### Front
 - Grid et reboot Bootstrap 4 uniquement
 - Modernizr
 - UI kit
@@ -14,7 +14,7 @@
     - Copie des fonts
     - Notifications
     
-## Back
+### Back
 - Gestion des custom post types et custom taxonomies
 - Emplacements de menus
 - Gestion des tailles d'images personnalisées
@@ -30,15 +30,15 @@ ___
 
 # Mise en place du thème
 
-## 1) Renommer le thème et le Text Domain `your_text_domain`
+### 1) Renommer le thème et le Text Domain `your_text_domain`
 
-## 2) Installer les composants et dépendances :
+### 2) Installer les composants et dépendances :
 
 ```sh
 yarn install
 ```
 
-## 3) Compilation et concaténation des fichiers :
+### 3) Compilation et concaténation des fichiers :
 
 ```sh
 yarn build
@@ -50,7 +50,7 @@ Pour le watch :
 yarn watch
 ```
 
-## UI kit :
+### UI kit :
 https://your-url.local/wp-content/themes/your_theme/src/ui-kit/index.html
 
 ___
@@ -65,7 +65,7 @@ ___
 
 # Gestion des dépendances
 
-## Pour ajouter une dépendance :
+### Pour ajouter une dépendance :
 https://classic.yarnpkg.com/fr/docs/cli/add
 
 ```sh
@@ -78,7 +78,7 @@ Pour une dépendance de développement :
 yarn add [package-name] --dev
 ```
 
-## Pour supprimer une dépendance :
+### Pour supprimer une dépendance :
 https://classic.yarnpkg.com/fr/docs/cli/remove
 
 ```sh
