@@ -7,8 +7,8 @@
 		<?php if ( has_post_thumbnail() ) : // Check if thumbnail exists ?>
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<?php the_post_thumbnail( [
-					120,
-					120,
+						120,
+						120,
 				] ); // Declare pixel size you need inside the array ?>
 			</a>
 		<?php endif; ?>
@@ -22,18 +22,14 @@
 		<!-- /post title -->
 
 		<!-- post details -->
-		<span
-			class="date"><?php the_date(); ?></span>
-		<span
-			class="author"><?php _e( 'Published by', 'your_text_domain' ); ?><?php the_author_posts_link(); ?></span>
+		<span class="date"><?php the_date(); ?></span>
+		<span class="author"><?php _e( 'Published by', 'your_text_domain' ); ?>&nbsp;<?php the_author_posts_link(); ?></span>
 		<span class="comments"><?php if ( comments_open( get_the_ID() ) ) {
 				comments_popup_link( __( 'Leave your thoughts', 'your_text_domain' ), __( '1 Comment', 'your_text_domain' ), __( '% Comments', 'your_text_domain' ) );
 			} ?></span>
 		<!-- /post details -->
 
 		<?php get_the_excerpt(); ?>
-
-		<?php edit_post_link(); ?>
 
 	</article>
 	<!-- /article -->

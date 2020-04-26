@@ -1,6 +1,6 @@
 # Fonctionnalités
 - Grille et reboot Bootstrap 4
-- Starter kit
+- UI kit
 - Compilation des assets (CSS, JS, images) avec Gulp
     - Compilation des fichiers .scss
     - Concaténation des fichiers .css et .js
@@ -41,8 +41,8 @@ Pour le watch :
 yarn watch
 ```
 
-### Starter kit :
-https://your-url.local/wp-content/themes/your_theme/src/library/library.html
+### UI kit :
+https://your-url.local/wp-content/themes/your_theme/src/ui-kit/index.html
 
 # Gestion des traductions :
 Pour générer le fichier `.pot` avec wp-cli

@@ -8,6 +8,7 @@
  *         CSS minification.
  *      2. JS: Concatenates & uglifies Vendor and Custom JS files.`
  *      3. Images : Image minification
+ *      4. Fonts : Copy
  *      4. Watches files for changes in CSS, JS or Images.
  *
  * @author Cédric Andrietti
@@ -56,12 +57,17 @@ var jsCustomFile = 'custom'; // Compiled JS custom file name.
 var imgSrc = './src/img/**/*.{png,jpg,jpeg,gif,svg}'; // Path to source images folder.
 var imgDestination = './dist/img/'; // Path to place the optimised images.
 
+// Fonts
+var fontsSrc = './src/fonts/**/*.{eot,svg,ttf,woff,woff2}'; // Path to source fonts folder.
+var fontsDestination = './dist/fonts/'; // Path to place the fonts.
+
 // Watch files paths.
 var styleVendorWatchFiles = './src/css/lib/*.css'; // Path to all vendor CSS files.
 var styleWatchFiles = './src/sass/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
 var vendorJSWatchFiles = './src/js/lib/*.js'; // Path to all vendor JS files.
 var customJSWatchFiles = './src/js/*.js'; // Path to all custom JS files.
 var imagesWatchFiles = './src/img/**/*.{png,jpg,jpeg,gif,svg}'; // Path to all images files.
+var fontsWatchFiles = './src/fonts/**/*.{eot,svg,ttf,woff,woff2}'; // Path to all images files.
 
 
 const {src, dest, watch, series, parallel} = require('gulp');
@@ -216,12 +222,22 @@ function images() {
         .pipe($.notify('Images minification Completed! 💯'))
 }
 
-function clean() {
+function fonts() {
+	return src(fontsSrc)
+		.pipe(dest(fontsDestination))
+		.pipe($.notify('Fonts copy Completed! 💯'))
+}
+
+function cleanDist() {
     return del(['./dist']);
 }
 
 function cleanImages() {
-    return del(imgDestination);
+	return del(imgDestination);
+}
+
+function cleanFonts() {
+	return del(fontsDestination);
 }
 
 function watchAssets() {
@@ -230,11 +246,12 @@ function watchAssets() {
     watch(vendorJSWatchFiles, scriptsVendor); // Reload on vendorsJs file changes.
     watch(customJSWatchFiles, scripts); // Reload on customJS file changes.
     watch(imagesWatchFiles, series(cleanImages, images)); // Reload on images changes.
+    watch(fontsWatchFiles, series(cleanFonts, fonts)); // Reload on fonts changes.
 }
 
 const build = series(
-    clean,
-    parallel(styles, stylesEditor, stylesVendors, scripts, scriptsVendor, images)
+	cleanDist,
+    parallel(styles, stylesEditor, stylesVendors, scripts, scriptsVendor, images, fonts)
 );
 
 const watcher = series(build, watchAssets);

@@ -115,9 +115,9 @@ function my_acf_block_render_callback( $block ) {
 	// Example : convert name ("acf/testimonial") into path friendly slug ("testimonial")
 	$slug = str_replace( 'acf/', '', $block['name'] );
 
-	// include a template part from within the "templates/acf-blocks-gutenberg" folder
-	if ( file_exists( get_template_directory() . "/templates/acf-blocks-gutenberg/{$slug}.php" ) ) {
-		include( get_template_directory() . "/templates/acf-blocks-gutenberg/{$slug}.php" );
+	// include a template part from within the "parts/acf-blocks-gutenberg" folder
+	if ( file_exists( get_template_directory() . "/parts/acf-blocks-gutenberg/{$slug}.php" ) ) {
+		include( get_template_directory() . "/parts/acf-blocks-gutenberg/{$slug}.php" );
 	}
 }
 

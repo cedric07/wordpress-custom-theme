@@ -1,9 +1,7 @@
 <?php get_header(); ?>
 
 <main role="main">
-	<!-- section -->
-	<section>
-
+	<div class="container">
 		<?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>
 
 			<!-- article -->
@@ -26,9 +24,9 @@
 
 				<!-- post details -->
 				<span
-					class="date"><?php the_date(); ?></span>
+						class="date"><?php the_date(); ?></span>
 				<span
-					class="author"><?php _e( 'Published by', 'your_text_domain' ); ?><?php the_author_posts_link(); ?></span>
+						class="author"><?php _e( 'Published by', 'your_text_domain' ); ?><?php the_author_posts_link(); ?></span>
 				<span class="comments"><?php if ( comments_open( get_the_ID() ) ) {
 						comments_popup_link( __( 'Leave your thoughts', 'your_text_domain' ), __( '1 Comment', 'your_text_domain' ), __( '% Comments', 'your_text_domain' ) );
 					} ?></span>
@@ -43,8 +41,6 @@
 
 				<p><?php _e( 'This post was written by ', 'your_text_domain' );
 					the_author(); ?></p>
-
-				<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 
 				<?php comments_template(); ?>
 
@@ -64,9 +60,7 @@
 			<!-- /article -->
 
 		<?php endif; ?>
-
-	</section>
-	<!-- /section -->
+	</div>
 </main>
 
 <?php get_footer(); ?>

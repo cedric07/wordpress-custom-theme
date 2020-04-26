@@ -1,9 +1,7 @@
 <?php get_header(); ?>
 
 <main role="main">
-	<!-- section -->
-	<section>
-
+	<div class="container">
 		<?php if ( have_posts() ): the_post(); ?>
 
 			<h1><?php _e( 'Author Archives for ', 'your_text_domain' );
@@ -30,8 +28,8 @@
 					<?php if ( has_post_thumbnail() ) : // Check if Thumbnail exists ?>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 							<?php the_post_thumbnail( [
-								120,
-								120,
+									120,
+									120,
 							] ); // Declare pixel size you need inside the array ?>
 						</a>
 					<?php endif; ?>
@@ -46,18 +44,14 @@
 
 					<!-- post details -->
 					<span
-						class="date"><?php the_date(); ?></span>
+							class="date"><?php the_date(); ?></span>
 					<span
-						class="author"><?php _e( 'Published by', 'your_text_domain' ); ?><?php the_author_posts_link(); ?></span>
+							class="author"><?php _e( 'Published by', 'your_text_domain' ); ?><?php the_author_posts_link(); ?></span>
 					<span
-						class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'your_text_domain' ), __( '1 Comment', 'your_text_domain' ), __( '% Comments', 'your_text_domain' ) ); ?></span>
+							class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'your_text_domain' ), __( '1 Comment', 'your_text_domain' ), __( '% Comments', 'your_text_domain' ) ); ?></span>
 					<!-- /post details -->
 
 					<?php get_the_excerpt(); ?>
-
-					<br class="clear">
-
-					<?php edit_post_link(); ?>
 
 				</article>
 				<!-- /article -->
@@ -77,9 +71,7 @@
 		<?php endif; ?>
 
 		<?php get_template_part( 'pagination' ); ?>
-
-	</section>
-	<!-- /section -->
+	</div>
 </main>
 
 <?php get_footer(); ?>
