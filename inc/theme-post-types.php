@@ -5,7 +5,7 @@ function custom_post_type() {
 	$labels = array(
 		'name'                  => _x( 'Test Post Types', 'Post Type General Name', 'your_text_domain' ),
 		'singular_name'         => _x( 'Test Post Type', 'Post Type Singular Name', 'your_text_domain' ),
-		'menu_name'             => __( 'Test Post Types', 'your_text_domain' ),
+		'menu_name'             => __( 'Test Post Type', 'your_text_domain' ),
 		'name_admin_bar'        => __( 'Test Post Type', 'your_text_domain' ),
 		'archives'              => __( 'Item Archives', 'your_text_domain' ),
 		'attributes'            => __( 'Item Attributes', 'your_text_domain' ),
