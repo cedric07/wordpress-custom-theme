@@ -83,6 +83,8 @@ function editor_style() {
 		add_theme_support( 'editor-styles' );
 
 		// Load editor style
+		add_editor_style( 'https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap' );
+
 		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
 			add_editor_style( '/dist/css/style-editor.css' );
 		} else {
