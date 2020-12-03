@@ -47,3 +47,7 @@ p.editor-rich-text__tinymce, ul.editor-rich-text__tinymce {
         margin-top: 0;
     }
 }
+
+.acf-block-preview a {
+    pointer-events: none;
+}
