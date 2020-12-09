@@ -6,8 +6,7 @@
   "author": "Cédric Andrietti",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^4.5.2",
-    "jquery": "^3.5.1"
+    "bootstrap": "^4.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^9.7.4",

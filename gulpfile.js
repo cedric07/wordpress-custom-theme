@@ -42,7 +42,6 @@ var styleMainFile = 'custom'; // Compiled CSS file name.
 
 // JS Vendor related.
 var jsVendorSRC = [ // Path to JS vendor files
-    npmDir + '/jquery/dist/jquery.js',
     './src/js/lib/*.js'
 ];
 var jsVendorDestination = './dist/js/'; // Path to place the compiled JS vendors file.
