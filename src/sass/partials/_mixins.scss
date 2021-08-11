@@ -1,6 +1,7 @@
 //---------------------------------------------------------------------------
 //------- Mixins généraux
 //---------------------------------------------------------------------------
+@use "sass:math";
 
 /*
  * A small mixin for easy use of rem with px as fallback
@@ -31,7 +32,7 @@
             // px value given - calculate rem value from base-font-size
 
             $px-values: join($px-values, round($value));
-            $rem-values: join($rem-values, #{ $value / $base-font-size }rem);
+            $rem-values: join($rem-values, math.div($value, $base-font-size)rem);
 
         } @else if $value == auto or $value == inherit or $value == '!important' {
             // auto or inherit or !important - don't add px or rem
@@ -151,14 +152,14 @@
 
 // Colors classes
 $colors: (
-    primary: $primary-color,
-    secondary: $secondary-color,
-    white: $white-color,
-    dark: $dark-color,
-    black: $black-color,
-    red: $red-color,
-    green: $green-color,
-    light-grey: $light-grey-color
+    "primary": $primary-color,
+    "secondary": $secondary-color,
+    "white": $white-color,
+    "dark": $dark-color,
+    "black": $black-color,
+    "red": $red-color,
+    "green": $green-color,
+    "light-grey": $light-grey-color
 );
 
 @each $name, $hex in $colors {

@@ -70,103 +70,102 @@ var fontsWatchFiles = './src/fonts/**/*.{eot,svg,ttf,woff,woff2}'; // Path to al
 
 
 const {src, dest, watch, series, parallel} = require('gulp');
-const gulpLoadPlugins = require('gulp-load-plugins');
+const plugins = require('gulp-load-plugins')();
+const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const del = require('del');
 
-const $ = gulpLoadPlugins();
-
 function styles() {
     return src(styleSRC)
-        .pipe($.plumber())
-        .pipe($.sourcemaps.init())
-        .pipe($.sassGlob())
-        .pipe($.sass.sync({
+        .pipe(plugins.plumber())
+        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.sassGlob())
+        .pipe(sass.sync({
             errLogToConsole: true,
             outputStyle: 'expanded',
             precision: 10,
             includePaths: ['.']
-        }).on('error', $.notify.onError({
+        }).on('error', plugins.notify.onError({
             message: "<%= error.message %>",
             title: "Error Custom styles"
         })))
-        .pipe($.postcss([
+        .pipe(plugins.postcss([
             autoprefixer()
         ]))
-        .pipe($.sourcemaps.write())
-        .pipe($.concat(styleMainFile + '.css'))
+        .pipe(plugins.sourcemaps.write())
+        .pipe(plugins.concat(styleMainFile + '.css'))
         .pipe(dest(styleDestination))
-        .pipe($.rename({
+        .pipe(plugins.rename({
             basename: styleMainFile,
             suffix: '.min'
         }))
-        .pipe($.postcss([
+        .pipe(plugins.postcss([
             cssnano()
         ]))
         .pipe(dest(styleDestination))
-        .pipe($.notify('Custom styles Completed! 💯'))
+        .pipe(plugins.notify('Custom styles Completed! 💯'))
 }
 
 function stylesVendors() {
     return src(styleVendorSRC)
-        .pipe($.plumber())
-        .pipe($.sourcemaps.init())
-        .pipe($.sass.sync({
+        .pipe(plugins.plumber())
+        .pipe(plugins.sourcemaps.init())
+        .pipe(sass.sync({
             errLogToConsole: true,
             outputStyle: 'expanded',
             precision: 10,
             includePaths: ['.']
-        }).on('error', $.notify.onError({
+        }).on('error', plugins.notify.onError({
             message: "<%= error.message %>",
             title: "Error Vendors styles"
         })))
-        .pipe($.postcss([
+        .pipe(plugins.postcss([
             autoprefixer()
         ]))
-        .pipe($.sourcemaps.write())
-        .pipe($.concat(styleVendorFile + '.css'))
+        .pipe(plugins.sourcemaps.write())
+        .pipe(plugins.concat(styleVendorFile + '.css'))
         .pipe(dest(styleVendorDestination))
-        .pipe($.rename({
+        .pipe(plugins.rename({
             basename: styleVendorFile,
             suffix: '.min'
         }))
-        .pipe($.postcss([
+        .pipe(plugins.postcss([
             cssnano()
         ]))
         .pipe(dest(styleVendorDestination))
-        .pipe($.notify('Vendors styles Completed! 💯'))
+        .pipe(plugins.notify('Vendors styles Completed! 💯'))
 }
 
 function stylesEditor() {
     return src(styleEditorSrc)
-        .pipe($.plumber())
-        .pipe($.sourcemaps.init())
-        .pipe($.sassGlob())
-        .pipe($.sass.sync({
+        .pipe(plugins.plumber())
+        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.sassGlob())
+        .pipe(sass.sync({
             errLogToConsole: true,
             outputStyle: 'expanded',
             precision: 10,
             includePaths: ['.']
-        }).on('error', $.notify.onError({
+        }).on('error', plugins.notify.onError({
             message: "<%= error.message %>",
             title: "Error Editor styles"
         })))
-        .pipe($.postcss([
+        .pipe(plugins.postcss([
             autoprefixer()
         ]))
-        .pipe($.sourcemaps.write())
-        .pipe($.concat(styleEditorFile + '.css'))
+        .pipe(plugins.sourcemaps.write())
+        .pipe(plugins.concat(styleEditorFile + '.css'))
         .pipe(dest(styleEditorDestination))
-        .pipe($.rename({
+        .pipe(plugins.rename({
             basename: styleEditorFile,
             suffix: '.min'
         }))
-        .pipe($.postcss([
+        .pipe(plugins.postcss([
             cssnano()
         ]))
         .pipe(dest(styleEditorDestination))
-        .pipe($.notify('Editor styles Completed! 💯'))
+        .pipe(plugins.notify('Editor styles Completed! 💯'))
 }
 
 function scripts() {
@@ -176,23 +175,23 @@ function scripts() {
     };
 
     return src(jsCustomSRC)
-        .pipe($.plumber())
-        .pipe($.jshint())
-        .pipe($.jshint.reporter())
-        .pipe($.jshint.reporter('fail'))
-        .on("error", $.notify.onError({
+        .pipe(plugins.plumber())
+        .pipe(plugins.jshint())
+        .pipe(plugins.jshint.reporter())
+        .pipe(plugins.jshint.reporter('fail'))
+        .on("error", plugins.notify.onError({
             title: "JSHint Error",
             message: "<%= error.message %>"
         }))
-        .pipe($.concat(jsCustomFile + '.js').on('error', onError))
+        .pipe(plugins.concat(jsCustomFile + '.js').on('error', onError))
         .pipe(dest(jsCustomDestination))
-        .pipe($.rename({
+        .pipe(plugins.rename({
             basename: jsCustomFile,
             suffix: '.min'
         }))
-        .pipe($.uglify().on('error', onError))
+        .pipe(plugins.uglify().on('error', onError))
         .pipe(dest(jsCustomDestination))
-        .pipe($.notify('Custom scripts Completed! 💯'))
+        .pipe(plugins.notify('Custom scripts Completed! 💯'))
 }
 
 function scriptsVendor() {
@@ -202,29 +201,29 @@ function scriptsVendor() {
     };
 
     return src(jsVendorSRC)
-        .pipe($.plumber())
-        .pipe($.concat(jsVendorFile + '.js').on('error', onError))
+        .pipe(plugins.plumber())
+        .pipe(plugins.concat(jsVendorFile + '.js').on('error', onError))
         .pipe(dest(jsVendorDestination))
-        .pipe($.rename({
+        .pipe(plugins.rename({
             basename: jsVendorFile,
             suffix: '.min'
         }))
-        .pipe($.uglify().on('error', onError))
+        .pipe(plugins.uglify().on('error', onError))
         .pipe(dest(jsVendorDestination))
-        .pipe($.notify('Vendors scripts Completed! 💯'))
+        .pipe(plugins.notify('Vendors scripts Completed! 💯'))
 }
 
 function images() {
     return src(imgSrc)
-        .pipe($.imagemin())
+        .pipe(plugins.imagemin())
         .pipe(dest(imgDestination))
-        .pipe($.notify('Images minification Completed! 💯'))
+        .pipe(plugins.notify('Images minification Completed! 💯'))
 }
 
 function fonts() {
 	return src(fontsSrc)
 		.pipe(dest(fontsDestination))
-		.pipe($.notify('Fonts copy Completed! 💯'))
+		.pipe(plugins.notify('Fonts copy Completed! 💯'))
 }
 
 function cleanDist() {
