@@ -1,7 +1,7 @@
 # Fonctionnalités
 
 ### Front
-- Grid et reboot Bootstrap 4 uniquement
+- Grid et reboot Bootstrap 5 uniquement
 - Modernizr
 - UI kit
 - Compilation des assets (CSS, JS, images, fonts) avec Gulp
