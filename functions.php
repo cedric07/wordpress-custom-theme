@@ -20,6 +20,10 @@ require THEME_INCLUDES . '/theme-taxonomies.php';
 
 require THEME_INCLUDES . '/theme-acf.php';
 
-// Constant
+// Emails
+require_once('inc/classes/Mail.php');
+Mail::init();
+
+// Constants
 define( 'IMG_PATH', get_template_directory_uri() . '/dist/img' );
 

@@ -15,6 +15,7 @@
     - Notifications
     
 ### Back
+- Template de mail custom
 - Gestion des custom post types et custom taxonomies
 - Emplacements de menus
 - Gestion des tailles d'images personnalisées
