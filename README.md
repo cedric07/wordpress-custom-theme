@@ -2,6 +2,7 @@
 
 ### Front
 - Grid et reboot Bootstrap 5 uniquement
+- Font Montserrat par défaut
 - Modernizr
 - UI kit
 - Compilation des assets (CSS, JS, images, fonts) avec Gulp

@@ -26,4 +26,6 @@ Mail::init();
 
 // Constants
 define( 'IMG_PATH', get_template_directory_uri() . '/dist/img' );
+define( 'ICONS_PATH', get_template_directory() . '/dist/img/icons' );
+define( 'FONT_PATH', get_template_directory_uri() . '/dist/fonts' );
 

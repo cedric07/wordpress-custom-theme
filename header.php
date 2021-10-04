@@ -12,7 +12,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no">
 	<meta name="description" content="<?php bloginfo( 'description' ); ?>">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap" rel="stylesheet">
+
+	<link rel="preload" href="<?php echo FONT_PATH; ?>/montserrat/montserrat-v18-latin-regular.woff2'" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="<?php echo FONT_PATH; ?>/montserrat/montserrat-v18-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="<?php echo FONT_PATH; ?>/montserrat/montserrat-v18-latin-300.woff2" as="font" type="font/woff2" crossorigin>
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
