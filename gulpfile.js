@@ -53,8 +53,12 @@ var jsCustomDestination = './dist/js/'; // Path to place the compiled JS custom 
 var jsCustomFile = 'custom'; // Compiled JS custom file name.
 
 // Images
-var imgSrc = './src/img/**/*.{png,jpg,jpeg,gif,svg}'; // Path to source images folder.
+var imgSrc = './src/img/**/*.{png,jpg,jpeg,gif,ico}'; // Path to source images folder.
 var imgDestination = './dist/img/'; // Path to place the optimised images.
+
+// SVG
+var svgSrc = './src/img/**/*.svg'; // Path to source svg images folder.
+var svgDestination = './dist/img/'; // Path to place the svg optimised images.
 
 // Fonts
 var fontsSrc = './src/fonts/**/*.{eot,svg,ttf,woff,woff2}'; // Path to source fonts folder.
@@ -65,7 +69,7 @@ var styleVendorWatchFiles = './src/css/lib/*.css'; // Path to all vendor CSS fil
 var styleWatchFiles = './src/sass/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
 var vendorJSWatchFiles = './src/js/lib/*.js'; // Path to all vendor JS files.
 var customJSWatchFiles = './src/js/*.js'; // Path to all custom JS files.
-var imagesWatchFiles = './src/img/**/*.{png,jpg,jpeg,gif,svg}'; // Path to all images files.
+var imagesWatchFiles = './src/img/**/*.{png,jpg,jpeg,gif,svg,ico}'; // Path to all images files.
 var fontsWatchFiles = './src/fonts/**/*.{eot,svg,ttf,woff,woff2}'; // Path to all images files.
 
 
@@ -220,6 +224,39 @@ function images() {
         .pipe(plugins.notify('Images minification Completed! 💯'))
 }
 
+function svg() {
+	return src(svgSrc)
+		.pipe(plugins.svgmin({
+			// Ensures the best optimization.
+			multipass: true,
+			js2svg: {
+				// Beutifies the SVG output instead of
+				// stripping all white space.
+				pretty: true,
+				indent: 2,
+			},
+			// Alter the default list of plugins.
+			plugins: [
+				// You can enable a plugin with just its name.
+				'sortAttrs',
+				{
+					name: 'removeViewBox',
+					// Disable a plugin by setting active to false.
+					active: true,
+				},
+				{
+					name: 'cleanupIDs',
+					// Add plugin options.
+					params: {
+						minify: true,
+					}
+				},
+			],
+		}))
+		.pipe(dest(svgDestination))
+		.pipe(plugins.notify('SVG minification Completed! 💯'))
+}
+
 function fonts() {
 	return src(fontsSrc)
 		.pipe(dest(fontsDestination))
@@ -243,13 +280,13 @@ function watchAssets() {
     watch(styleWatchFiles, series(styles, stylesEditor)); // Reload on SCSS file changes.
     watch(vendorJSWatchFiles, scriptsVendor); // Reload on vendorsJs file changes.
     watch(customJSWatchFiles, scripts); // Reload on customJS file changes.
-    watch(imagesWatchFiles, series(cleanImages, images)); // Reload on images changes.
+    watch(imagesWatchFiles, series(cleanImages, images, svg)); // Reload on images changes.
     watch(fontsWatchFiles, series(cleanFonts, fonts)); // Reload on fonts changes.
 }
 
 const build = series(
 	cleanDist,
-    parallel(styles, stylesEditor, stylesVendors, scripts, scriptsVendor, images, fonts)
+    parallel(styles, stylesEditor, stylesVendors, scripts, scriptsVendor, images, fonts, svg)
 );
 
 const watcher = series(build, watchAssets);

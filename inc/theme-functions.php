@@ -224,3 +224,18 @@ function ajouterParametreGET( $url, $paramNom, $paramValeur ) {
 
 	return $urlFinal;
 }
+
+/**
+ * @param $name
+ * @param string $class
+ * Render SVG Icon
+ */
+function iconRender( $name, $class = '' ) {
+	$svg = file_get_contents( ICONS_PATH . '/' . $name . '.svg' );
+
+	if ( ! empty( $class ) ) {
+		$svg = str_replace( '<svg ', '<svg class="' . $class .'"', $svg );
+	}
+
+	echo $svg;
+}

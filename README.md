@@ -15,6 +15,7 @@
     - Notifications
     
 ### Back
+- SVG render function
 - Template de mail custom
 - Gestion des custom post types et custom taxonomies
 - Emplacements de menus
@@ -62,6 +63,14 @@ Pour générer le fichier `.pot` avec wp-cli
 wp i18n make-pot . languages/wordpress-custom-theme.pot
 ```
 
+___
+
+# Gestion des SVG :
+Pour afficher un SVG, utiliser la fonction :
+
+```sh
+iconRender('monSVG', 'maClass');
+```
 ___
 
 # Gestion des dépendances
