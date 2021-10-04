@@ -1,24 +1,20 @@
 @import "partials/variables";
+@import "partials/variables-override";
 @import "partials/mixins";
-@import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
-@import "../../node_modules/bootstrap/scss/mixins";
-@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/bootstrap-reboot";
 @import "../../node_modules/bootstrap/scss/bootstrap-grid";
 
 @import "partials/helpers";
 @import "partials/general/fonts";
+@import "partials/general/typography";
+@import "partials/general/global";
 @import "partials/components/**/*";
 
-* {
-    font-family: $font-custom;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
 /* Main column width */
-.wp-block {
-    max-width: 1110px;
+.wp-block, .block-list-appender {
+    @include make-container();
+    position: relative;
+    z-index: 1;
 }
 
 .editor-inner-blocks {
@@ -40,6 +36,8 @@ p.editor-rich-text__tinymce, ul.editor-rich-text__tinymce {
 }
 
 #tinymce {
+    position: relative;
+    background-color: #fff;
     padding: 15px;
 
     p {
@@ -47,6 +45,15 @@ p.editor-rich-text__tinymce, ul.editor-rich-text__tinymce {
     }
 }
 
-.acf-block-preview a {
-    pointer-events: none;
+.acf-block-component > div > div:not(.acf-block-fields){
+    * {
+        font-family: $font-custom;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+        pointer-events: none;
+        text-decoration: none;
+    }
 }
