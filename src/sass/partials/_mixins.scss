@@ -150,32 +150,3 @@
         }
     }
 }
-
-// Colors classes
-$colors: (
-    "primary": $primary-color,
-    "secondary": $secondary-color,
-    "white": $white-color,
-    "dark": $dark-color,
-    "black": $black-color,
-    "red": $red-color,
-    "green": $green-color,
-    "light-grey": $light-grey-color
-);
-
-@each $name, $hex in $colors {
-    // Text color classes
-    .#{$name}-color {
-        @include textColor($hex);
-    }
-
-    // Bg color classes
-    .#{$name}-bg {
-        @include bgColor($hex);
-    }
-
-    // Button plain classes
-    .#{$name}-btn {
-        @include button-plain-bg($hex);
-    }
-}

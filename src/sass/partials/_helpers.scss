@@ -40,3 +40,32 @@ video.video-responsive {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+// Colors classes
+$colors: (
+    "primary": $primary-color,
+    "secondary": $secondary-color,
+    "white": $white-color,
+    "dark": $dark-color,
+    "black": $black-color,
+    "error": $error-color,
+    "success": $success-color,
+    "light-grey": $light-grey-color
+);
+
+@each $name, $hex in $colors {
+    // Text color classes
+    .color-#{$name} {
+        @include textColor($hex);
+    }
+
+    // Bg color classes
+    .bg-#{$name} {
+        @include bgColor($hex);
+    }
+
+    // Button plain classes
+    .btn-#{$name} {
+        @include button-plain-bg($hex);
+    }
+}

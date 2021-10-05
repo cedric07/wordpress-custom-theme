@@ -2,7 +2,7 @@
 //
 // Style anchor elements.
 
-$link-color: $link-color !default;
+$link-color: $text-color !default;
 $link-hover-color: darken($link-color, 15%) !default;
 $link-decoration: none !default;
 $link-hover-decoration: none !default;
