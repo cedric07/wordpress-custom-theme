@@ -114,7 +114,7 @@ $content = get_query_var( 'content' );
 								   style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
 								<tr>
 									<td style="vertical-align: top; padding-bottom: 30px; padding-top: 10px; text-align: center;">
-										<img class="img-responsive" src="<?php echo IMG_PATH; ?>/logo.png" alt="Logo">
+										<img class="img-responsive" src="<?php echo IMG_PATH; ?>/logo-email.png" alt="Logo">
 									</td>
 								</tr>
 								<tr>
