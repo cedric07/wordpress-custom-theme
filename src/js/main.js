@@ -3,14 +3,16 @@ var APP = APP || {};
 var $ = jQuery.noConflict();
 
 APP.pref = {
+	screen_xxl: 1400,
+	screen_xxl_down: 1399.98,
 	screen_xl: 1200,
-	screen_lg_down: 1199.98,
+	screen_xl_down: 1199.98,
 	screen_lg: 992,
-	screen_md_down: 991.98,
+	screen_lg_down: 991.98,
 	screen_md: 768,
-	screen_sm_down: 767.98,
+	screen_md_down: 767.98,
 	screen_sm: 576,
-	screen_xs_down: 575.98
+	screen_sm_down: 575.98
 };
 
 $(document).ready(function () {
