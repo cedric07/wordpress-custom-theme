@@ -114,29 +114,153 @@ function my_acf_block_categories( $categories ) {
 function my_acf_block_render_callback( $block ) {
 	// Example : convert name ("acf/testimonial") into path friendly slug ("testimonial")
 	$slug = str_replace( 'acf/', '', $block['name'] );
+	$file = ACF_GUTENBERG_PATH . "/" . $slug . ".php";
 
 	// include a template part from within the "parts/acf-blocks-gutenberg" folder
-	if ( file_exists( get_template_directory() . "/parts/acf-blocks-gutenberg/{$slug}.php" ) ) {
-		include( get_template_directory() . "/parts/acf-blocks-gutenberg/{$slug}.php" );
+	if ( file_exists( $file ) ) {
+		include( $file );
 	}
+}
+
+/**
+ * ACF Register block function
+ *
+ * @param $datas
+ */
+function my_acf_configure_gutenberg_blocks( $datas ) {
+
+	if ( function_exists( 'acf_register_block_type' ) ) {
+		if ( is_array( $datas ) ) {
+			foreach ( $datas as $data ) {
+				acf_register_block_type( array(
+					'name'            => $data['name'],
+					'title'           => $data['title'],
+					'description'     => ! empty( $data['description'] ) ? $data['description'] : '',
+					'render_callback' => 'my_acf_block_render_callback',
+					'category'        => ! empty( $data['category'] ) ? $data['category'] : 'custom-cat',
+					'icon'            => ! empty( $data['icon'] ) ? $data['icon'] : 'wordpress',
+					'keywords'        => ! empty( $data['keywords'] ) ? $data['keywords'] : array( 'custom' ),
+					'mode'            => ! empty( $data['mode'] ) ? $data['mode'] : 'preview',
+					'supports'        => array(
+						'align'  => false,
+						'anchor' => true
+					),
+					'example'         => array(
+					'attributes' => array(
+						'mode' => 'preview',
+						'data' => array(
+							'preview_image' => ACF_GUTENBERG_PREVIEW_PATH . '/' . $data['name'] . '.jpg',
+						)
+					)
+				)
+				) );
+			}
+		}
+	}
+}
+
+/**
+ * Set allowed Blocks
+ * @param $allowed_blocks
+ *
+ * @return string[]
+ */
+function my_acf_allowed_blocks($allowed_blocks) {
+	$allowed_blocks = array(
+		// Common blocks
+		//'core/paragraph',
+		//'core/image',
+		//'core/heading',
+		//'core/gallery',
+		//'core/list',
+		//'core/quote',
+		//'core/audio',
+		//'core/cover',
+		//'core/file',
+		//'core/video',
+
+		// Formatting blocks
+		//'core/table',
+		//'core/verse',
+		//'core/code',
+		//'core/freeform',
+		//'core/html',
+		//'core/preformatted',
+		//'core/pullquote',
+
+		// Layout elements blocks
+		//'core/buttons',
+		//'core/text-columns',
+		//'core/media-text',
+		//'core/more',
+		//'core/nextpage',
+		//'core/separator',
+		//'core/spacer',
+
+		// Widget blocks
+		//'core/shortcode',
+		//'core/archives',
+		//'core/categories',
+		//'core/latest-comments',
+		//'core/latest-posts',
+		//'core/calendar',
+		//'core/rss',
+		//'core/search',
+		//'core/tag-cloud',
+
+		// Embed
+		//'core/embed',
+		//'core-embed/twitter',
+		//'core-embed/youtube',
+		//'core-embed/facebook',
+		//'core-embed/instagram',
+		//'core-embed/wordpress',
+		//'core-embed/soundcloud',
+		//'core-embed/spotify',
+		//'core-embed/flickr',
+		//'core-embed/vimeo',
+		//'core-embed/animoto',
+		//'core-embed/cloudup',
+		//'core-embed/collegehumor',
+		//'core-embed/dailymotion',
+		//'core-embed/funnyordie',
+		//'core-embed/hulu',
+		//'core-embed/imgur',
+		//'core-embed/issuu',
+		//'core-embed/kickstarter',
+		//'core-embed/meetup-com',
+		//'core-embed/mixcloud',
+		//'core-embed/photobucket',
+		//'core-embed/polldaddy',
+		//'core-embed/reddit',
+		//'core-embed/reverbnation',
+		//'core-embed/screencast',
+		//'core-embed/scribd',
+		//'core-embed/slideshare',
+		//'core-embed/smugmug',
+		//'core-embed/speaker',
+		//'core-embed/ted',
+		//'core-embed/tumblr',
+		//'core-embed/videopress',
+		//'core-embed/wordpress-tv',
+
+		// My ACF custom blocks
+		'acf/block-test',
+	);
+
+	return $allowed_blocks;
 }
 
 /**
  * Register Gutenberg ACF blocks
  */
-function my_acf_gutenberg_blocks() {
-	// check function exists
-	if ( function_exists( 'acf_register_block' ) ) {
-
-		// register a test custom block
-		acf_register_block( array(
-			'name'            => 'block-test',
-			'title'           => __( 'Test block', 'your_text_domain' ),
-			'description'     => __( 'A custom test block Gutenberg.', 'your_text_domain' ),
-			'render_callback' => 'my_acf_block_render_callback',
-			'category'        => 'custom-cat',
-			'icon'            => 'editor-ol',
-			'keywords'        => array( 'test', 'block' ),
-		) );
-	}
-}
+my_acf_configure_gutenberg_blocks(
+	array(
+		array(
+			'name'        => 'block-test',
+			'title'       => __( 'Test block', 'your_text_domain' ),
+			'description' => __( 'A custom test block Gutenberg.', 'your_text_domain' ),
+			'keywords'    => array( 'test', 'block' ),
+		)
+	)
+);
