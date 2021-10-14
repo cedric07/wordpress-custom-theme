@@ -232,14 +232,12 @@ function ajouterParametreGET( $url, $paramNom, $paramValeur ) {
 /**
  * @param $name
  * @param string $class
- * Render SVG Icon
+ * Return SVG Icon
  */
-function iconRender( $name, $class = '' ) {
-	$svg = file_get_contents( ICONS_PATH . '/' . $name . '.svg' );
+function icon( $name, string $class = '' ) {
+	$svg    = file_get_contents( ICONS_PATH . '/' . $name . '.svg' );
+	$class  = ( ! empty( $class ) ) ? ' ' . $class : '';
+	$render = str_replace( '<svg ', '<svg class="icon' . $class . '"', $svg );
 
-	if ( ! empty( $class ) ) {
-		$svg = str_replace( '<svg ', '<svg class="' . $class .'"', $svg );
-	}
-
-	echo $svg;
+	return $render;
 }
