@@ -227,26 +227,31 @@ function images() {
 function svg() {
 	return src(svgSrc)
 		.pipe(plugins.svgmin({
-			// Ensures the best optimization.
 			multipass: true,
 			js2svg: {
-				// Beutifies the SVG output instead of
-				// stripping all white space.
-				pretty: true,
+				pretty: false,
 				indent: 2,
 			},
-			// Alter the default list of plugins.
 			plugins: [
-				// You can enable a plugin with just its name.
-				'sortAttrs',
+				{
+					name: 'sortAttrs',
+					active: true,
+				},
+				{
+					name: 'removeStyleElement',
+					active: true,
+				},
 				{
 					name: 'removeViewBox',
-					// Disable a plugin by setting active to false.
+					active: false,
+				},
+				{
+					name: 'removeDimensions',
 					active: true,
 				},
 				{
 					name: 'cleanupIDs',
-					// Add plugin options.
+					active: true,
 					params: {
 						minify: true,
 					}
