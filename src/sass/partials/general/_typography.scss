@@ -1,6 +1,6 @@
 body {
     font-family: $font-custom;
-    font-weight: $regular-font;
+    font-weight: $font-regular;
     @include x-rem(font-size, $default-text-size);
     color: $text-color;
     -webkit-font-smoothing: antialiased;

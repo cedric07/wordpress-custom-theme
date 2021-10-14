@@ -3,7 +3,7 @@
     @include x-rem(font-size, $button-text-size);
     @include x-rem(line-height, $button-line-height);
     @include x-rem(padding, $button-padding);
-    font-weight: $bold-font;
+    font-weight: $font-bold;
     cursor: pointer;
     text-transform: uppercase;
     // Gets rid of tap active state
