@@ -15,7 +15,11 @@ function menu_nav() {
 			'menu_id'         => false,
 			'echo'            => true,
 			'fallback_cb'     => 'wp_page_menu',
-			'depth'           => 2,
+			'before'          => '',
+			'after'           => '',
+			'link_before'     => '',
+			'link_after'      => '',
+			'depth'           => 0,
 		]
 	);
 }
