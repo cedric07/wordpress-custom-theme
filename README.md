@@ -16,6 +16,7 @@
     - Notifications
     
 ### Back
+- Pass PHP Data to JavaScript
 - SVG render function
 - Template de mail custom
 - Gestion des custom post types et custom taxonomies
@@ -70,8 +71,19 @@ ___
 Pour afficher un SVG, utiliser la fonction :
 
 ```sh
-iconRender('monSVG', 'maClass');
+<?php echo icon('monSVG', 'maClass'); ?>
 ```
+
+___
+
+# PHP dans le JavaScript :
+Pour afficher une info PHP dans le JavaScript :
+
+```sh
+console.log(php_vars.myVar);
+```
+Pour ajouter une nouvelle info, voir fichier `/inc/theme-sub-actions.php` ligne 50
+
 ___
 
 # Gestion des dépendances

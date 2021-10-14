@@ -40,11 +40,19 @@ function front_js() {
 		if ( file_exists( get_template_directory() . $vendor_file ) ) {
 			wp_register_script( 'vendors', get_stylesheet_directory_uri() . $vendor_file, [], filemtime( get_stylesheet_directory() . $vendor_file ), true );
 		}
+
 		if ( file_exists( get_template_directory() . $custom_file ) ) {
 			wp_enqueue_script( 'custom', get_stylesheet_directory_uri() . $custom_file, [
 				'jquery',
 				'vendors'
 			], filemtime( get_stylesheet_directory() . $custom_file ), true );
+
+			// Pass PHP Data to JavaScript
+			$dataToBePassed = array(
+				'myVar' => 'My value',
+			);
+
+			wp_localize_script( 'custom', 'php_vars', $dataToBePassed );
 		}
 	}
 }
