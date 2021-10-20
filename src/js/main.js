@@ -50,3 +50,26 @@ APP.exemple = {
 		console.log(php_vars.myKey);
 	}
 };
+
+/**
+ * Is in Viewport
+ *
+ * Usage :
+ *
+ * if ($('#Something').isInViewport()) {
+ *     // do something
+ * } else {
+ *     // do something else
+ * }
+ *
+ * @returns {boolean}
+ */
+$.fn.isInViewport = function () {
+	var elementTop = $(this).offset().top;
+	var elementBottom = elementTop + $(this).outerHeight();
+
+	var viewportTop = $(window).scrollTop();
+	var viewportBottom = viewportTop + $(window).height();
+
+	return elementBottom > viewportTop && elementTop < viewportBottom;
+};
