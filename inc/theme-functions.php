@@ -230,14 +230,17 @@ function ajouterParametreGET( $url, $paramNom, $paramValeur ) {
 }
 
 /**
+ * Return SVG Icon
+ *
  * @param $name
  * @param string $class
- * Return SVG Icon
+ *
+ * @return array|false|string|string[]
  */
 function icon( $name, string $class = '' ) {
 	$svg    = file_get_contents( ICONS_PATH . '/' . $name . '.svg' );
-	$class  = ( ! empty( $class ) ) ? ' ' . $class : '';
-	$render = str_replace( '<svg ', '<svg class="icon' . $class . '"', $svg );
+	$class  = ( ! empty( $class ) ) ? 'icon ' . $class : 'icon';
+	$render = str_replace( '<svg ', '<svg class="' . $class . '"', $svg );
 
 	return $render;
 }
