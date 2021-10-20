@@ -108,10 +108,14 @@ function my_acf_block_categories( $categories ) {
 }
 
 /**
- * @param $block
  * ACF render gutenberg blocks
+ *
+ * @param $block
+ * @param string $content
+ * @param false $is_preview
+ * @param int $post_id
  */
-function my_acf_block_render_callback( $block ) {
+function my_acf_block_render_callback( $block, $content = '', $is_preview = false, $post_id = 0 ) {
 	// Example : convert name ("acf/testimonial") into path friendly slug ("testimonial")
 	$slug = str_replace( 'acf/', '', $block['name'] );
 	$file = ACF_GUTENBERG_PATH . "/" . $slug . ".php";
@@ -146,13 +150,13 @@ function my_acf_configure_gutenberg_blocks( $datas ) {
 						'anchor' => true
 					),
 					'example'         => array(
-					'attributes' => array(
-						'mode' => 'preview',
-						'data' => array(
-							'preview_image' => ACF_GUTENBERG_PREVIEW_PATH . '/' . $data['name'] . '.jpg',
+						'attributes' => array(
+							'mode' => 'preview',
+							'data' => array(
+								'preview_image' => ACF_GUTENBERG_PREVIEW_PATH . '/' . $data['name'] . '.jpg',
+							)
 						)
 					)
-				)
 				) );
 			}
 		}
@@ -161,11 +165,12 @@ function my_acf_configure_gutenberg_blocks( $datas ) {
 
 /**
  * Set allowed Blocks
+ *
  * @param $allowed_blocks
  *
  * @return string[]
  */
-function my_acf_allowed_blocks($allowed_blocks) {
+function my_acf_allowed_blocks( $allowed_blocks ) {
 	$allowed_blocks = array(
 		// Common blocks
 		//'core/paragraph',
