@@ -24,6 +24,21 @@ function front_css() {
 }
 
 /**
+ * Admin CSS
+ */
+function admin_css() {
+	if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
+		$admin_file = '/dist/css/admin.css';
+	} else {
+		$admin_file = '/dist/css/admin.min.css';
+	}
+
+	if ( file_exists( get_template_directory() . $admin_file ) ) {
+		wp_enqueue_style( 'admin_css', get_stylesheet_directory_uri() . $admin_file, [], filemtime( get_stylesheet_directory() . $admin_file ), 'all' );
+	}
+}
+
+/**
  * JS
  */
 function front_js() {

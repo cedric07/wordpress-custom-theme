@@ -16,6 +16,7 @@
     - Notifications
     
 ### Back
+- Admin CSS
 - Pass PHP Data to JavaScript
 - SVG render function
 - Template de mail custom

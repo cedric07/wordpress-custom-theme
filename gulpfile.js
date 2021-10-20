@@ -35,6 +35,11 @@ var styleEditorSrc = './src/sass/style-editor.scss';
 var styleEditorDestination = './dist/css/';
 var styleEditorFile = 'style-editor'; // Compiled CSS file name.
 
+// Style admin
+var styleAdminSrc = './src/sass/admin.scss';
+var styleAdminDestination = './dist/css/';
+var styleAdminFile = 'admin'; // Compiled CSS file name.
+
 // Style Custom related.
 var styleSRC = './src/sass/main.scss'; // Path to SCSS files
 var styleDestination = './dist/css/'; // Path to place the compiled CSS file.
@@ -139,6 +144,37 @@ function stylesVendors() {
         ]))
         .pipe(dest(styleVendorDestination))
         .pipe(plugins.notify('Vendors styles Completed! 💯'))
+}
+
+function stylesAdmin() {
+	return src(styleAdminSrc)
+		.pipe(plugins.plumber())
+		.pipe(plugins.sourcemaps.init())
+		.pipe(plugins.sassGlob())
+		.pipe(sass.sync({
+			errLogToConsole: true,
+			outputStyle: 'expanded',
+			precision: 10,
+			includePaths: ['.']
+		}).on('error', plugins.notify.onError({
+			message: "<%= error.message %>",
+			title: "Error Editor styles"
+		})))
+		.pipe(plugins.postcss([
+			autoprefixer()
+		]))
+		.pipe(plugins.sourcemaps.write())
+		.pipe(plugins.concat(styleAdminFile + '.css'))
+		.pipe(dest(styleAdminDestination))
+		.pipe(plugins.rename({
+			basename: styleAdminFile,
+			suffix: '.min'
+		}))
+		.pipe(plugins.postcss([
+			cssnano()
+		]))
+		.pipe(dest(styleAdminDestination))
+		.pipe(plugins.notify('Admin styles Completed! 💯'))
 }
 
 function stylesEditor() {
@@ -282,7 +318,7 @@ function cleanFonts() {
 
 function watchAssets() {
     watch(styleVendorWatchFiles, stylesVendors); // Reload on Vendor CSS file changes.
-    watch(styleWatchFiles, series(styles, stylesEditor)); // Reload on SCSS file changes.
+    watch(styleWatchFiles, series(styles, stylesEditor, stylesAdmin)); // Reload on SCSS file changes.
     watch(vendorJSWatchFiles, scriptsVendor); // Reload on vendorsJs file changes.
     watch(customJSWatchFiles, scripts); // Reload on customJS file changes.
     watch(imagesWatchFiles, series(cleanImages, images, svg)); // Reload on images changes.
@@ -291,7 +327,7 @@ function watchAssets() {
 
 const build = series(
 	cleanDist,
-    parallel(styles, stylesEditor, stylesVendors, scripts, scriptsVendor, images, fonts, svg)
+    parallel(styles, stylesEditor, stylesAdmin, stylesVendors, scripts, scriptsVendor, images, fonts, svg)
 );
 
 const watcher = series(build, watchAssets);
