@@ -8,7 +8,7 @@
 			<h1><?php _e( 'Page not found', 'your_text_domain' ); ?></h1>
 			<h2>
 				<a
-						href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'your_text_domain' ); ?></a>
+						href="<?= home_url(); ?>"><?php _e( 'Return home?', 'your_text_domain' ); ?></a>
 			</h2>
 
 		</article>

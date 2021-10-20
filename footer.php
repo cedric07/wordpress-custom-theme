@@ -4,7 +4,7 @@
 	<div class="container">
 		<!-- copyright -->
 		<p class="copyright">
-			&copy; <?php echo date( 'Y' ); ?> Copyright <?php bloginfo( 'name' ); ?>
+			&copy; <?= date( 'Y' ); ?> Copyright <?php bloginfo( 'name' ); ?>
 		</p>
 		<!-- /copyright -->
 	</div>

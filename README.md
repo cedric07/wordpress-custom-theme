@@ -71,7 +71,7 @@ ___
 Pour afficher un SVG, utiliser la fonction :
 
 ```sh
-<?php echo icon('monSVG', 'maClass'); ?>
+<?= icon('monSVG', 'maClass'); ?>
 ```
 
 ___
