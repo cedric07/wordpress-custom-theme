@@ -18,6 +18,7 @@ add_action('_admin_menu', 'remove_editor_menu', 1); // Remove Editor menu on App
 // ACF
 add_action( 'acf/init', 'my_acf_theme_options' ); // ACF Theme Options
 add_action( 'acf/init', 'my_acf_configure_gutenberg_blocks' ); // ACF Blocks Gutenberg
+add_action( 'acf/input/admin_footer', 'acf_color_palette' ); // ACF color palette
 
 // Post types
 add_action( 'init', 'custom_post_type', 0 );

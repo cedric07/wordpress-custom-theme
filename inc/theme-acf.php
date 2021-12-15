@@ -11,39 +11,39 @@ function my_acf_theme_options() {
 
 		$acf_options_pages    = array();
 		$acf_options_pages[0] = array(
-			'page_title' => __( 'Theme General Settings', 'your_text_domain' ),
-			'menu_title' => __( 'Theme Settings', 'your_text_domain' ),
-			'menu_slug'  => 'theme-general-settings',
-			'capability' => 'edit_posts',
-			'redirect'   => true,
+				'page_title' => __( 'Theme General Settings', 'your_text_domain' ),
+				'menu_title' => __( 'Theme Settings', 'your_text_domain' ),
+				'menu_slug'  => 'theme-general-settings',
+				'capability' => 'edit_posts',
+				'redirect'   => true,
 		);
 		$acf_options_pages[]  = [
-			'page_title'  => __( 'General Settings', 'your_text_domain' ),
-			'menu_title'  => __( 'General', 'your_text_domain' ),
-			'parent_slug' => 'theme-general-settings',
-			'menu_slug'   => 'general',
-			'create_json' => true
+				'page_title'  => __( 'General Settings', 'your_text_domain' ),
+				'menu_title'  => __( 'General', 'your_text_domain' ),
+				'parent_slug' => 'theme-general-settings',
+				'menu_slug'   => 'general',
+				'create_json' => true
 		];
 		$acf_options_pages[]  = [
-			'page_title'  => __( 'Header Settings', 'your_text_domain' ),
-			'menu_title'  => __( 'Header', 'your_text_domain' ),
-			'parent_slug' => 'theme-general-settings',
-			'menu_slug'   => 'header',
-			'create_json' => true
+				'page_title'  => __( 'Header Settings', 'your_text_domain' ),
+				'menu_title'  => __( 'Header', 'your_text_domain' ),
+				'parent_slug' => 'theme-general-settings',
+				'menu_slug'   => 'header',
+				'create_json' => true
 		];
 		$acf_options_pages[]  = [
-			'page_title'  => __( 'Footer Settings', 'your_text_domain' ),
-			'menu_title'  => __( 'Footer', 'your_text_domain' ),
-			'parent_slug' => 'theme-general-settings',
-			'menu_slug'   => 'footer',
-			'create_json' => true
+				'page_title'  => __( 'Footer Settings', 'your_text_domain' ),
+				'menu_title'  => __( 'Footer', 'your_text_domain' ),
+				'parent_slug' => 'theme-general-settings',
+				'menu_slug'   => 'footer',
+				'create_json' => true
 		];
 		$acf_options_pages[]  = [
-			'page_title'  => __( '404 page Settings', 'your_text_domain' ),
-			'menu_title'  => __( '404 page', 'your_text_domain' ),
-			'parent_slug' => 'theme-general-settings',
-			'menu_slug'   => '404-page',
-			'create_json' => true
+				'page_title'  => __( '404 page Settings', 'your_text_domain' ),
+				'menu_title'  => __( '404 page', 'your_text_domain' ),
+				'parent_slug' => 'theme-general-settings',
+				'menu_slug'   => '404-page',
+				'create_json' => true
 		];
 
 		foreach ( $acf_options_pages as $key => $acf_option ) {
@@ -89,6 +89,24 @@ function my_acf_theme_options() {
 }
 
 /**
+ * ACF color palette
+ *
+ * @return void
+ */
+function acf_color_palette() { ?>
+	<script type="text/javascript">
+		(function ($) {
+			acf.add_filter('color_picker_args', function (args, $field) {
+				// add the hexadecimal codes here for the colors you want to appear as swatches
+				args.palettes = ['#2196F3', '#FF4081', '#FF4A4A', '#2EE085', '#777777', '#ffffff', '#000000']
+				// return colors
+				return args;
+			});
+		})(jQuery);
+	</script>
+<?php }
+
+/**
  * @param $categories
  * @param $post
  *
@@ -97,13 +115,13 @@ function my_acf_theme_options() {
  */
 function my_acf_block_categories( $categories ) {
 	return array_merge(
-		$categories,
-		array(
+			$categories,
 			array(
-				'slug'  => 'custom-cat',
-				'title' => __( 'Custom blocks', 'your_text_domain' )
-			),
-		)
+					array(
+							'slug'  => 'custom-cat',
+							'title' => __( 'Custom blocks', 'your_text_domain' )
+					),
+			)
 	);
 }
 
@@ -136,41 +154,41 @@ function my_acf_configure_gutenberg_blocks( $datas ) {
 	if ( function_exists( 'acf_register_block_type' ) ) {
 		if ( is_array( $datas ) ) {
 
-			$formatsForPreview = array('png', 'jpg', 'gif');
+			$formatsForPreview = array( 'png', 'jpg', 'gif' );
 
 			foreach ( $datas as $data ) {
 
 				$previewImage = IMG_PATH . '/logo.svg';
 
-				foreach ($formatsForPreview as $format) {
+				foreach ( $formatsForPreview as $format ) {
 					$previewImagePath = ACF_GUTENBERG_PREVIEW_ABS_PATH . '/' . $data['name'] . '.' . $format;
-					if (file_exists($previewImagePath)) {
+					if ( file_exists( $previewImagePath ) ) {
 						$previewImage = ACF_GUTENBERG_PREVIEW_PATH . '/' . $data['name'] . '.' . $format;
 						break;
 					}
 				}
 
 				acf_register_block_type( array(
-					'name'            => $data['name'],
-					'title'           => $data['title'],
-					'description'     => ! empty( $data['description'] ) ? $data['description'] : '',
-					'render_callback' => 'my_acf_block_render_callback',
-					'category'        => ! empty( $data['category'] ) ? $data['category'] : 'custom-cat',
-					'icon'            => ! empty( $data['icon'] ) ? $data['icon'] : 'wordpress',
-					'keywords'        => ! empty( $data['keywords'] ) ? $data['keywords'] : array( 'custom' ),
-					'mode'            => ! empty( $data['mode'] ) ? $data['mode'] : 'preview',
-					'supports'        => array(
-						'align'  => false,
-						'anchor' => true
-					),
-					'example'         => array(
-						'attributes' => array(
-							'mode' => 'preview',
-							'data' => array(
-								'preview_image' => $previewImage,
-							)
+						'name'            => $data['name'],
+						'title'           => $data['title'],
+						'description'     => ! empty( $data['description'] ) ? $data['description'] : '',
+						'render_callback' => 'my_acf_block_render_callback',
+						'category'        => ! empty( $data['category'] ) ? $data['category'] : 'custom-cat',
+						'icon'            => ! empty( $data['icon'] ) ? $data['icon'] : 'wordpress',
+						'keywords'        => ! empty( $data['keywords'] ) ? $data['keywords'] : array( 'custom' ),
+						'mode'            => ! empty( $data['mode'] ) ? $data['mode'] : 'preview',
+						'supports'        => array(
+								'align'  => false,
+								'anchor' => true
+						),
+						'example'         => array(
+								'attributes' => array(
+										'mode' => 'preview',
+										'data' => array(
+												'preview_image' => $previewImage,
+										)
+								)
 						)
-					)
 				) );
 			}
 		}
@@ -214,7 +232,7 @@ function my_acf_allowed_blocks( $allowed_blocks ) {
 		//'core/more',
 		//'core/nextpage',
 		//'core/separator',
-		'core/spacer',
+			'core/spacer',
 
 		// Widget blocks
 		//'core/shortcode',
@@ -264,7 +282,7 @@ function my_acf_allowed_blocks( $allowed_blocks ) {
 		//'core-embed/wordpress-tv',
 
 		// My ACF custom blocks
-		'acf/block-test',
+			'acf/block-test',
 	);
 
 	return $allowed_blocks;
@@ -274,12 +292,12 @@ function my_acf_allowed_blocks( $allowed_blocks ) {
  * Register Gutenberg ACF blocks
  */
 my_acf_configure_gutenberg_blocks(
-	array(
 		array(
-			'name'        => 'block-test',
-			'title'       => __( 'Test block', 'your_text_domain' ),
-			'description' => __( 'A custom test block Gutenberg.', 'your_text_domain' ),
-			'keywords'    => array( 'test', 'block' ),
+				array(
+						'name'        => 'block-test',
+						'title'       => __( 'Test block', 'your_text_domain' ),
+						'description' => __( 'A custom test block Gutenberg.', 'your_text_domain' ),
+						'keywords'    => array( 'test', 'block' ),
+				)
 		)
-	)
 );
