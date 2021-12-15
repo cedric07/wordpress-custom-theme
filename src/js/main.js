@@ -28,7 +28,7 @@ APP.global = {
 	},
 	onResize: function () {
 		/** onResize function */
-		$(window).on('resize', function () {
+		$(window).on('resize orientationchange', function () {
 
 		});
 	},
