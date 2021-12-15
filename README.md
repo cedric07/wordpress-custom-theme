@@ -16,10 +16,15 @@
     - Notifications
     
 ### Back
-- Disable auto updates
+- ACF color palette
+- Load Javascript in Gutenberg
+- Fonction pour désactiver l'éditeur Gutenberg sur certain post types
+- Yoast functions
+- Disable WordPress auto updates
 - Get image path function
 - Strip tags for wysiwyg field function
 - Admin CSS
+- Editor Style
 - Pass PHP Data to JavaScript
 - SVG render function
 - Template de mail custom
