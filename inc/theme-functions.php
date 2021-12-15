@@ -28,14 +28,19 @@ function menu_nav() {
  * Pagination for paged posts, Page 1, Page 2, Page 3, with Next and Previous
  * Links, No plugin
  */
-function pagination() {
+function pagination( $query = null ) {
 	global $wp_query;
+	global $paged;
+	if ( empty( $paged ) ) {
+		$paged = 1;
+	}
 	$big = 999999999;
+
 	echo paginate_links( [
 		'base'      => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
 		'format'    => '?paged=%#%',
-		'current'   => max( 1, get_query_var( 'paged' ) ),
-		'total'     => $wp_query->max_num_pages,
+		'current'   => max( 1, $paged ),
+		'total'     => empty( $query ) ? $wp_query->max_num_pages : $query->max_num_pages,
 		'type'      => 'list',
 		'prev_text' => 'prev',
 		'next_text' => 'next',
@@ -243,4 +248,30 @@ function icon( $name, string $class = '' ) {
 	$render = str_replace( '<svg ', '<svg class="' . $class . '"', $svg );
 
 	return $render;
+}
+
+/**
+ * Return image path
+ *
+ * @param $image
+ *
+ * @return array|mixed|string|string[]|void
+ */
+function getImagePath( $image ) {
+	$image_url   = $image['url'];
+	$uploads_dir = wp_upload_dir();
+	$image_path  = str_replace( $uploads_dir['baseurl'], $uploads_dir['basedir'], $image_url );
+
+	return $image_path;
+}
+
+/**
+ * Strip tags for wysiwyg field
+ *
+ * @param $field
+ *
+ * @return string
+ */
+function stripTagsField( $field ) {
+	return strip_tags( $field, '<br><strong><b>' );
 }
