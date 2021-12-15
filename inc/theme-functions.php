@@ -243,7 +243,7 @@ function ajouterParametreGET( $url, $paramNom, $paramValeur ) {
  * @return array|false|string|string[]
  */
 function icon( $name, string $class = '' ) {
-	$svg    = file_get_contents( ICONS_PATH . '/' . $name . '.svg' );
+	$svg    = file_get_contents( ICONS_ABS_PATH . '/' . $name . '.svg' );
 	$class  = ( ! empty( $class ) ) ? 'icon ' . $class : 'icon';
 	$render = str_replace( '<svg ', '<svg class="' . $class . '"', $svg );
 

@@ -118,7 +118,7 @@ function my_acf_block_categories( $categories ) {
 function my_acf_block_render_callback( $block, $content = '', $is_preview = false, $post_id = 0 ) {
 	// Example : convert name ("acf/testimonial") into path friendly slug ("testimonial")
 	$slug = str_replace( 'acf/', '', $block['name'] );
-	$file = ACF_GUTENBERG_PATH . "/" . $slug . ".php";
+	$file = ACF_GUTENBERG_ABS_PATH . "/" . $slug . ".php";
 
 	// include a template part from within the "parts/acf-blocks-gutenberg" folder
 	if ( file_exists( $file ) ) {
@@ -135,7 +135,21 @@ function my_acf_configure_gutenberg_blocks( $datas ) {
 
 	if ( function_exists( 'acf_register_block_type' ) ) {
 		if ( is_array( $datas ) ) {
+
+			$formatsForPreview = array('png', 'jpg', 'gif');
+
 			foreach ( $datas as $data ) {
+
+				$previewImage = IMG_PATH . '/logo.svg';
+
+				foreach ($formatsForPreview as $format) {
+					$previewImagePath = ACF_GUTENBERG_PREVIEW_ABS_PATH . '/' . $data['name'] . '.' . $format;
+					if (file_exists($previewImagePath)) {
+						$previewImage = ACF_GUTENBERG_PREVIEW_PATH . '/' . $data['name'] . '.' . $format;
+						break;
+					}
+				}
+
 				acf_register_block_type( array(
 					'name'            => $data['name'],
 					'title'           => $data['title'],
@@ -153,7 +167,7 @@ function my_acf_configure_gutenberg_blocks( $datas ) {
 						'attributes' => array(
 							'mode' => 'preview',
 							'data' => array(
-								'preview_image' => ACF_GUTENBERG_PREVIEW_PATH . '/' . $data['name'] . '.jpg',
+								'preview_image' => $previewImage,
 							)
 						)
 					)
