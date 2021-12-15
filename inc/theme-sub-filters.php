@@ -1,16 +1,23 @@
 <?php
 
 /**
- * Custom View Article link to Post
+ * Disable Guntenberg
  *
- * @param $more
+ * @param $current_status
+ * @param $post_type
  *
- * @return string
+ * @return false|mixed
  */
-function view_more_article( $more ) {
-	global $post;
+function my_disable_gutenberg( $current_status, $post_type ) {
 
-	return '... <a class="view-article" href="' . get_permalink( $post->ID ) . '">' . __( 'View Article', 'your_text_domain' ) . '</a>';
+	// Disabled post types
+	$disabled_post_types = array( 'yourPostTypeHere' );
+
+	if ( in_array( $post_type, $disabled_post_types, true ) ) {
+		$current_status = false;
+	}
+
+	return $current_status;
 }
 
 /**

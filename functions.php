@@ -21,6 +21,10 @@ define( 'ACF_GUTENBERG_ABS_PATH', get_template_directory() . '/parts/acf-blocks-
 define( 'ACF_GUTENBERG_PREVIEW_PATH', get_template_directory_uri() . '/dist/img/acf-blocks-gutenberg-preview' );
 define( 'ACF_GUTENBERG_PREVIEW_ABS_PATH', get_template_directory() . '/dist/img/acf-blocks-gutenberg-preview' );
 
+define( 'POST_TYPE_TEST', 'test_post_type' );
+
+define( 'TAXO_TEST', 'test_taxonomy' );
+
 // Includes
 require THEME_INCLUDES . '/theme-actions.php';
 require THEME_INCLUDES . '/theme-sub-actions.php';
