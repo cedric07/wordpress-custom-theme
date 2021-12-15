@@ -16,6 +16,9 @@
     - Notifications
     
 ### Back
+- Disable auto updates
+- Get image path function
+- Strip tags for wysiwyg field function
 - Admin CSS
 - Pass PHP Data to JavaScript
 - SVG render function
