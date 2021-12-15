@@ -200,7 +200,7 @@ function my_acf_allowed_blocks( $allowed_blocks ) {
 		//'core/more',
 		//'core/nextpage',
 		//'core/separator',
-		//'core/spacer',
+		'core/spacer',
 
 		// Widget blocks
 		//'core/shortcode',
