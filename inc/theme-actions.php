@@ -6,6 +6,7 @@ add_action( 'wp_enqueue_scripts', 'front_js' );
 
 // Admin assets
 add_action('admin_print_styles', 'admin_css', 11);
+add_action( 'enqueue_block_editor_assets', 'front_js' ); // Load js in gutenberg
 
 // Global actions
 add_action( 'after_setup_theme', 'editor_style' ); // Editor style
