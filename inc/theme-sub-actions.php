@@ -105,8 +105,10 @@ function editor_style() {
 		add_theme_support( 'editor-styles' );
 
 		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
+			add_editor_style( '/dist/css/vendors.css' );
 			add_editor_style( '/dist/css/style-editor.css' );
 		} else {
+			add_editor_style( '/dist/css/vendors.min.css' );
 			add_editor_style( '/dist/css/style-editor.min.css' );
 		}
 
