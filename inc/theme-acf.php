@@ -147,36 +147,39 @@ function my_acf_block_render_callback( $block, $content = '', $is_preview = fals
 /**
  * ACF Register block function
  *
- * @param $datas
+ * @return void
  */
-function my_acf_configure_gutenberg_blocks( $datas ) {
+function my_acf_configure_gutenberg_blocks() {
 
 	if ( function_exists( 'acf_register_block_type' ) ) {
-		if ( is_array( $datas ) ) {
 
-			$formatsForPreview = array( 'png', 'jpg', 'gif' );
+		$blocks = my_acf_gutenberg_blocks();
 
-			foreach ( $datas as $data ) {
+		if ( is_array( $blocks ) ) {
+
+			$formatsForPreview = array( 'gif', 'png', 'jpg' );
+
+			foreach ( $blocks as $block ) {
 
 				$previewImage = IMG_PATH . '/logo.svg';
 
 				foreach ( $formatsForPreview as $format ) {
-					$previewImagePath = ACF_GUTENBERG_PREVIEW_ABS_PATH . '/' . $data['name'] . '.' . $format;
+					$previewImagePath = ACF_GUTENBERG_PREVIEW_ABS_PATH . '/' . $block['name'] . '.' . $format;
 					if ( file_exists( $previewImagePath ) ) {
-						$previewImage = ACF_GUTENBERG_PREVIEW_PATH . '/' . $data['name'] . '.' . $format;
+						$previewImage = ACF_GUTENBERG_PREVIEW_PATH . '/' . $block['name'] . '.' . $format;
 						break;
 					}
 				}
 
 				acf_register_block_type( array(
-						'name'            => $data['name'],
-						'title'           => $data['title'],
-						'description'     => ! empty( $data['description'] ) ? $data['description'] : '',
+						'name'            => $block['name'],
+						'title'           => $block['title'],
+						'description'     => ! empty( $block['description'] ) ? $block['description'] : '',
 						'render_callback' => 'my_acf_block_render_callback',
-						'category'        => ! empty( $data['category'] ) ? $data['category'] : 'custom-cat',
-						'icon'            => ! empty( $data['icon'] ) ? $data['icon'] : 'wordpress',
-						'keywords'        => ! empty( $data['keywords'] ) ? $data['keywords'] : array( 'custom' ),
-						'mode'            => ! empty( $data['mode'] ) ? $data['mode'] : 'preview',
+						'category'        => ! empty( $block['category'] ) ? $block['category'] : 'datasolution',
+						'icon'            => ! empty( $block['icon'] ) ? $block['icon'] : '<svg width="17" height="17" xmlns="http://www.w3.org/2000/svg"><path d="M15.889 4.144a8.074 8.074 0 0 0-3.053-3.045C11.55.37 10.091 0 8.5 0c-.206 0-.409.006-.597.018H7.66v8.73h1.664V1.633c.963.103 1.859.39 2.663.853a6.574 6.574 0 0 1 2.451 2.477c.594 1.05.896 2.238.896 3.535 0 1.298-.302 2.487-.896 3.537a6.557 6.557 0 0 1-2.451 2.476c-1.032.596-2.205.898-3.487.898-1.284 0-2.461-.303-3.5-.898a6.533 6.533 0 0 1-2.461-2.476c-.595-1.049-.897-2.238-.897-3.537 0-1.122.228-2.168.675-3.107l.171-.359H.679l-.062.154A8.849 8.849 0 0 0 0 8.499c0 1.589.374 3.047 1.111 4.334a8.132 8.132 0 0 0 3.051 3.054C5.447 16.626 6.907 17 8.5 17c1.592 0 3.051-.37 4.336-1.1a8.067 8.067 0 0 0 3.053-3.044C16.626 11.567 17 10.102 17 8.5c0-1.601-.374-3.067-1.111-4.355" fill="#FF7130" fill-rule="evenodd"/></svg>',
+						'keywords'        => ! empty( $block['keywords'] ) ? $block['keywords'] : array( 'datasolution' ),
+						'mode'            => ! empty( $block['mode'] ) ? $block['mode'] : 'preview',
 						'supports'        => array(
 								'align'  => false,
 								'anchor' => true
@@ -289,15 +292,16 @@ function my_acf_allowed_blocks( $allowed_blocks ) {
 }
 
 /**
- * Register Gutenberg ACF blocks
+ * Returns Gutenberg ACF blocks
+ * @return array[]
  */
-my_acf_configure_gutenberg_blocks(
-		array(
-				array(
-						'name'        => 'block-test',
-						'title'       => __( 'Test block', 'your_text_domain' ),
-						'description' => __( 'A custom test block Gutenberg.', 'your_text_domain' ),
-						'keywords'    => array( 'test', 'block' ),
-				)
-		)
-);
+function my_acf_gutenberg_blocks() {
+	return array(
+			array(
+					'name'        => 'block-test',
+					'title'       => __( 'Test block', 'your_text_domain' ),
+					'description' => __( 'A custom test block Gutenberg.', 'your_text_domain' ),
+					'keywords'    => array( 'test', 'block' ),
+			)
+	);
+}

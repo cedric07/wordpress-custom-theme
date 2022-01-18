@@ -216,8 +216,10 @@ function scripts() {
 
     return src(jsCustomSRC)
         .pipe(plugins.plumber())
-        .pipe(plugins.jshint())
-        .pipe(plugins.jshint.reporter())
+		.pipe(plugins.jshint({
+			esversion: 6
+		}))
+		.pipe(plugins.jshint.reporter())
         .pipe(plugins.jshint.reporter('fail'))
         .on("error", plugins.notify.onError({
             title: "JSHint Error",

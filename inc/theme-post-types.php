@@ -34,7 +34,7 @@ function custom_post_type() {
 	$args = array(
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions' ),
-		'taxonomies'            => array( 'test_taxonomy' ),
+		'taxonomies'            => array( TAXO_TEST ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -49,6 +49,6 @@ function custom_post_type() {
 		'capability_type'       => 'page',
 		'show_in_rest'          => true
 	);
-	register_post_type( 'test_post_type', $args );
+	register_post_type( POST_TYPE_TEST, $args );
 
 }

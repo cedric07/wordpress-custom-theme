@@ -24,16 +24,17 @@ function custom_taxonomy() {
 		'items_list'                 => __( 'Items list', 'your_text_domain' ),
 		'items_list_navigation'      => __( 'Items list navigation', 'your_text_domain' ),
 	);
-	$args = array(
-		'labels'                     => $labels,
-		'hierarchical'               => true,
-		'public'                     => true,
-		'show_ui'                    => true,
-		'show_admin_column'          => true,
-		'show_in_nav_menus'          => true,
-		'show_tagcloud'              => true,
-		'show_in_rest'               => true
+	$args   = array(
+		'labels'            => $labels,
+		'meta_box_cb'       => 'post_categories_meta_box',
+		'hierarchical'      => true,
+		'public'            => true,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'show_in_nav_menus' => true,
+		'show_tagcloud'     => true,
+		'show_in_rest'      => true
 	);
-	register_taxonomy( 'test_taxonomy', array( 'test_post_type' ), $args );
+	register_taxonomy( TAXO_TEST, array( POST_TYPE_TEST ), $args );
 
 }
