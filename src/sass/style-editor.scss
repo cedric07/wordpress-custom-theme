@@ -2,7 +2,7 @@
 @import "partials/variables-override";
 @import "partials/mixins";
 @import "../../node_modules/bootstrap/scss/bootstrap-reboot";
-@import "../../node_modules/bootstrap/scss/bootstrap-grid";
+@import "../../node_modules/bootstrap/scss/bootstrap-grid"; // OR without grid : @import "../../node_modules/bootstrap/scss/containers";
 
 @import "partials/helpers";
 @import "partials/general/fonts";
@@ -11,7 +11,8 @@
 
 /* Main column width */
 .wp-block, .block-list-appender {
-    @include make-container();
+    max-width: 100%;
+    margin: 0 auto;
     position: relative;
     z-index: 1;
 }
@@ -44,15 +45,12 @@ p.editor-rich-text__tinymce, ul.editor-rich-text__tinymce {
     }
 }
 
-.acf-block-component > div > div:not(.acf-block-fields){
-    * {
-        font-family: $font-custom;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
+.acf-block-component > div > div:not(.acf-block-fields) {
+    font-family: $font-custom;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-    a {
+    a, .swiper * {
         pointer-events: none;
-        text-decoration: none;
     }
 }

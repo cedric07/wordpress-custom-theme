@@ -41,6 +41,22 @@ video.video-responsive {
     text-overflow: ellipsis;
 }
 
+.p-relative {
+    position: relative;
+}
+
+.only-mobile {
+    @include media-breakpoint-up(md) {
+        display: none !important;
+    }
+}
+
+.only-desktop {
+    @include media-breakpoint-down(md) {
+        display: none !important;
+    }
+}
+
 // Colors classes
 $colors: (
     "primary": $color-primary,

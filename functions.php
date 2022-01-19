@@ -6,20 +6,41 @@ define( 'THEME_INCLUDES', THEME_DIR . '/inc' );
 define( 'THEME_ACF_JSON', THEME_DIR . '/acf-json' );
 
 // Constants
-define( 'IMG_PATH', get_template_directory_uri() . '/dist/img' );
-define( 'IMG_ABS_PATH', get_template_directory() . '/dist/img' );
+define( 'IMG_DIR', '/dist/img' );
+define( 'IMG_PATH', get_template_directory_uri() . IMG_DIR );
+define( 'IMG_ABS_PATH', get_template_directory() . IMG_DIR );
 
-define( 'ICONS_PATH', get_template_directory_uri() . '/dist/img/icons' );
-define( 'ICONS_ABS_PATH', get_template_directory() . '/dist/img/icons' );
+define( 'ICONS_DIR', '/dist/img/icons' );
+define( 'ICONS_PATH', get_template_directory_uri() . ICONS_DIR );
+define( 'ICONS_ABS_PATH', get_template_directory() . ICONS_DIR );
 
-define( 'FONT_PATH', get_template_directory_uri() . '/dist/fonts' );
-define( 'FONT_ABS_PATH', get_template_directory() . '/dist/fonts' );
+define( 'FONT_DIR', '/dist/fonts' );
+define( 'FONT_PATH', get_template_directory_uri() . FONT_DIR );
+define( 'FONT_ABS_PATH', get_template_directory() . FONT_DIR );
 
-define( 'ACF_GUTENBERG_PATH', get_template_directory_uri() . '/parts/acf-blocks-gutenberg' );
-define( 'ACF_GUTENBERG_ABS_PATH', get_template_directory() . '/parts/acf-blocks-gutenberg' );
+define( 'CSS_DIR', '/dist/css' );
+define( 'CSS_PATH', get_template_directory_uri() . CSS_DIR );
+define( 'CSS_ABS_PATH', get_template_directory() . CSS_DIR );
 
-define( 'ACF_GUTENBERG_PREVIEW_PATH', get_template_directory_uri() . '/dist/img/acf-blocks-gutenberg-preview' );
-define( 'ACF_GUTENBERG_PREVIEW_ABS_PATH', get_template_directory() . '/dist/img/acf-blocks-gutenberg-preview' );
+define( 'JS_DIR', '/dist/js' );
+define( 'JS_PATH', get_template_directory_uri() . JS_DIR );
+define( 'JS_ABS_PATH', get_template_directory() . JS_DIR );
+
+define( 'ACF_GUTENBERG_DIR', '/parts/acf-blocks-gutenberg' );
+define( 'ACF_GUTENBERG_PATH', get_template_directory_uri() . ACF_GUTENBERG_DIR );
+define( 'ACF_GUTENBERG_ABS_PATH', get_template_directory() . ACF_GUTENBERG_DIR );
+
+define( 'ACF_GUTENBERG_PREVIEW_DIR', IMG_DIR . '/acf-blocks-gutenberg-preview' );
+define( 'ACF_GUTENBERG_PREVIEW_PATH', get_template_directory_uri() . ACF_GUTENBERG_PREVIEW_DIR );
+define( 'ACF_GUTENBERG_PREVIEW_ABS_PATH', get_template_directory() . ACF_GUTENBERG_PREVIEW_DIR );
+
+define( 'VENDORS_CSS_FILENAME', 'vendors' );
+define( 'CUSTOM_CSS_FILENAME', 'custom' );
+define( 'EDITOR_CSS_FILENAME', 'style-editor' );
+define( 'ADMIN_CSS_FILENAME', 'admin' );
+
+define( 'VENDORS_JS_FILENAME', 'vendors' );
+define( 'CUSTOM_JS_FILENAME', 'custom' );
 
 define( 'POST_TYPE_TEST', 'test_post_type' );
 

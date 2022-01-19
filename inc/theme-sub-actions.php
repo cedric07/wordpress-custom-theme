@@ -6,18 +6,47 @@
 function front_css() {
 
 	if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-		$vendor_file = '/dist/css/vendors.css';
-		$custom_file = '/dist/css/custom.css';
+		$vendor_file = CSS_DIR . '/' . VENDORS_CSS_FILENAME . '.css';
+		$custom_file = CSS_DIR . '/' . CUSTOM_CSS_FILENAME . '.css';
 	} else {
-		$vendor_file = '/dist/css/vendors.min.css';
-		$custom_file = '/dist/css/custom.min.css';
+		$vendor_file = CSS_DIR . '/' . VENDORS_CSS_FILENAME . '.min.css';
+		$custom_file = CSS_DIR . '/' . CUSTOM_CSS_FILENAME . '.min.css';
 	}
 
 	if ( file_exists( get_template_directory() . $vendor_file ) ) {
-		wp_enqueue_style( 'vendors', get_stylesheet_directory_uri() . $vendor_file, [], filemtime( get_stylesheet_directory() . $vendor_file ), 'all' );
+		wp_enqueue_style( VENDORS_CSS_FILENAME, get_stylesheet_directory_uri() . $vendor_file, [], filemtime( get_stylesheet_directory() . $vendor_file ), 'all' );
 	}
+
 	if ( file_exists( get_template_directory() . $custom_file ) ) {
-		wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . $custom_file, [], filemtime( get_stylesheet_directory() . $custom_file ), 'all' );
+		wp_enqueue_style( CUSTOM_CSS_FILENAME, get_stylesheet_directory_uri() . $custom_file, [], filemtime( get_stylesheet_directory() . $custom_file ), 'all' );
+	}
+}
+
+/**
+ * Editor css
+ */
+function editor_css() {
+	if ( function_exists( 'add_theme_support' ) ) {
+		add_theme_support( 'editor-styles' );
+
+		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
+			$vendor_file = CSS_DIR . '/' . VENDORS_CSS_FILENAME . '.css';
+			$editor_file = CSS_DIR . '/' . EDITOR_CSS_FILENAME . '.css';
+		} else {
+			$vendor_file = CSS_DIR . '/' . VENDORS_CSS_FILENAME . '.min.css';
+			$editor_file = CSS_DIR . '/' . EDITOR_CSS_FILENAME . '.min.css';
+		}
+
+		if ( file_exists( get_template_directory() . $vendor_file ) ) {
+			add_editor_style( $vendor_file );
+		}
+
+		if ( file_exists( get_template_directory() . $editor_file ) ) {
+			add_editor_style( $editor_file );
+		}
+
+		// Default stylesheet for gutenberg blocks
+		add_theme_support( 'wp-block-styles' );
 	}
 }
 
@@ -26,13 +55,13 @@ function front_css() {
  */
 function admin_css() {
 	if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-		$admin_file = '/dist/css/admin.css';
+		$admin_file = CSS_DIR . '/'.ADMIN_CSS_FILENAME.'.css';
 	} else {
-		$admin_file = '/dist/css/admin.min.css';
+		$admin_file = CSS_DIR . '/'.ADMIN_CSS_FILENAME.'.min.css';
 	}
 
 	if ( file_exists( get_template_directory() . $admin_file ) ) {
-		wp_enqueue_style( 'admin_css', get_stylesheet_directory_uri() . $admin_file, [], filemtime( get_stylesheet_directory() . $admin_file ), 'all' );
+		wp_enqueue_style( ADMIN_CSS_FILENAME, get_stylesheet_directory_uri() . $admin_file, [], filemtime( get_stylesheet_directory() . $admin_file ), 'all' );
 	}
 }
 
@@ -42,21 +71,21 @@ function admin_css() {
 function front_js() {
 
 	if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-		$vendor_file = '/dist/js/vendors.js';
-		$custom_file = '/dist/js/custom.js';
+		$vendor_file = JS_DIR . '/'.VENDORS_JS_FILENAME.'.js';
+		$custom_file = JS_DIR . '/'.CUSTOM_JS_FILENAME.'.js';
 	} else {
-		$vendor_file = '/dist/js/vendors.min.js';
-		$custom_file = '/dist/js/custom.min.js';
+		$vendor_file = JS_DIR . '/'.VENDORS_JS_FILENAME.'.min.js';
+		$custom_file = JS_DIR . '/'.CUSTOM_JS_FILENAME.'.min.js';
 	}
 
 	if ( file_exists( get_template_directory() . $vendor_file ) ) {
-		wp_register_script( 'vendors', get_stylesheet_directory_uri() . $vendor_file, [], filemtime( get_stylesheet_directory() . $vendor_file ), true );
+		wp_register_script( VENDORS_JS_FILENAME, get_stylesheet_directory_uri() . $vendor_file, [], filemtime( get_stylesheet_directory() . $vendor_file ), true );
 	}
 
 	if ( file_exists( get_template_directory() . $custom_file ) ) {
-		wp_enqueue_script( 'custom', get_stylesheet_directory_uri() . $custom_file, [
+		wp_enqueue_script( CUSTOM_JS_FILENAME, get_stylesheet_directory_uri() . $custom_file, [
 			'jquery',
-			'vendors'
+			VENDORS_JS_FILENAME
 		], filemtime( get_stylesheet_directory() . $custom_file ), true );
 
 		// Pass PHP Data to JavaScript
@@ -64,7 +93,7 @@ function front_js() {
 			'myVar' => 'My value',
 		);
 
-		wp_localize_script( 'custom', 'php_vars', $dataToBePassed );
+		wp_localize_script( CUSTOM_JS_FILENAME, 'php_vars', $dataToBePassed );
 	}
 }
 
@@ -94,26 +123,6 @@ function my_sidebars() {
 			'before_title'  => '<h3>',
 			'after_title'   => '</h3>',
 		) );
-	}
-}
-
-/**
- * Editor style
- */
-function editor_style() {
-	if ( function_exists( 'add_theme_support' ) ) {
-		add_theme_support( 'editor-styles' );
-
-		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
-			add_editor_style( '/dist/css/vendors.css' );
-			add_editor_style( '/dist/css/style-editor.css' );
-		} else {
-			add_editor_style( '/dist/css/vendors.min.css' );
-			add_editor_style( '/dist/css/style-editor.min.css' );
-		}
-
-		// Default stylesheet for gutenberg blocks
-		add_theme_support( 'wp-block-styles' );
 	}
 }
 

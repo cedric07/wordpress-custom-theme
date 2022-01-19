@@ -3,7 +3,7 @@
 /**
  * Navigation
  */
-function menu_nav() {
+function header_nav() {
 	wp_nav_menu(
 		[
 			'theme_location'  => 'header-menu',
@@ -11,7 +11,7 @@ function menu_nav() {
 			'container'       => false,
 			'container_class' => false,
 			'container_id'    => false,
-			'menu_class'      => '',
+			'menu_class'      => 'header--menu',
 			'menu_id'         => false,
 			'echo'            => true,
 			'fallback_cb'     => 'wp_page_menu',

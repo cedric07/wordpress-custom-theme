@@ -47,7 +47,7 @@ APP.exemple = {
 		this.exempleVar = $('.myClass');
 
 		APP.exemple.exempleVar.hide();
-		console.log(php_vars.myKey);
+		console.log(php_vars.myVar);
 	}
 };
 

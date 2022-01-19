@@ -9,7 +9,7 @@ add_action('admin_print_styles', 'admin_css', 11);
 add_action( 'enqueue_block_editor_assets', 'front_js' ); // Load js in gutenberg
 
 // Global actions
-add_action( 'after_setup_theme', 'editor_style' ); // Editor style
+add_action( 'after_setup_theme', 'editor_css' ); // Editor css
 add_action( 'after_setup_theme', 'language_setup' ); // Theme language
 add_action( 'after_setup_theme', 'my_menus' ); // Register Menus
 add_action( 'widgets_init', 'my_sidebars' ); // Register Sidebars

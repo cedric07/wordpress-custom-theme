@@ -4,17 +4,17 @@
 @import "partials/variables";
 @import "partials/variables-override";
 @import "partials/mixins";
-@import "partials/helpers";
 
 //---------------------------------------------------------------------------
 //------- Bootstrap Grid and reboot
 //---------------------------------------------------------------------------
 @import "../../node_modules/bootstrap/scss/bootstrap-reboot";
-@import "../../node_modules/bootstrap/scss/bootstrap-grid";
+@import "../../node_modules/bootstrap/scss/bootstrap-grid"; // OR without grid : @import "../../node_modules/bootstrap/scss/containers";
 
 //---------------------------------------------------------------------------
 //------- General
 //---------------------------------------------------------------------------
+@import "partials/helpers";
 @import "partials/general/*";
 
 //---------------------------------------------------------------------------

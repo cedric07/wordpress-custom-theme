@@ -28,7 +28,7 @@
 			<a href="<?= home_url(); ?>" class="logo">
 				<img class="img-responsive" src="<?= IMG_PATH; ?>/logo.svg" alt="Logo">
 			</a>
-			<?php menu_nav(); ?>
+			<?php header_nav(); ?>
 		</nav>
 		<!-- /nav -->
 	</div>

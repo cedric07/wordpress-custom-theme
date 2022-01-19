@@ -64,7 +64,7 @@ yarn watch
 ```
 
 ### UI kit :
-https://your-url.local/wp-content/themes/your_theme/src/ui-kit/index.html
+https://your-url.local/wp-content/themes/your_theme/src/ui-kit/
 
 ___
 
