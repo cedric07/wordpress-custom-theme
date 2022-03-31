@@ -15,9 +15,9 @@ if ( ! empty( $block['anchor'] ) ) {
 }
 
 // Create class attribute allowing for custom "className".
-$blockClasses = '';
+$blockClasses = 'custom-wp-block';
 if ( ! empty( $block['className'] ) ) {
-	$blockClasses = esc_attr( $block['className'] );
+	$blockClasses = $blockClasses . ' ' .esc_attr( $block['className'] );
 }
 
 // Block Name for use classes
