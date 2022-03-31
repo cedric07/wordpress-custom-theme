@@ -15,11 +15,19 @@ APP.pref = {
 	screen_sm_down: 575.98
 };
 
-$(document).ready(function () {
-	APP.global.init();
-	APP.global.onResize();
-	APP.global.onScroll();
-});
+if ($('body.wp-admin.block-editor-page').length > 0) { // For gutenberg to load js after page load
+	$(window).load(function () {
+		APP.global.init();
+		APP.global.onResize();
+		APP.global.onScroll();
+	});
+} else {
+	$(document).ready(function () {
+		APP.global.init();
+		APP.global.onResize();
+		APP.global.onScroll();
+	});
+}
 
 APP.global = {
 	init: function () {
